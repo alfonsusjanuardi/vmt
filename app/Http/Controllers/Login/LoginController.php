@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Login;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\uservmt;
 
 class LoginController extends Controller
 {
@@ -14,19 +15,14 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-        $this->validate($request, [
-			'username' => 'required',
-			'password' => 'required'
-		]);
-        $username = $request->username;
-        $password = $request->password;
-        if ($username == "instruktur" && $password == "123") {
-            return redirect('instructor');
-        } else {
-            return redirect()->back()->withErrors(['username'=>'Username salah']);
+        $user = uservmt::where('username', $request->username)->where('password', $request->password)->first();
+        if ($user) {
+            return redirect()->intended('/instructor');
         }
 
-        // return redirect('instructor');
+        return redirect('/')
+            ->withInput($request->only('username'))
+            ->withErrors(['username' => 'Invalid username or password.']);
     }
 
     public function logout(Request $request)
