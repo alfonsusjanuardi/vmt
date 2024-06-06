@@ -25,8 +25,8 @@
 
         <section class="content">
             <div class="container-fluid">
-                <div class="row">
-                    <div class="col-6">
+                <div class="row" style="height: 80vh; overflow: hidden;">
+                    <div class="col-6" style="height: 100%; overflow-y: auto;">
                         <div class="card">
                             <div class="card-header">
                                 <h3 class="card-title">View Exercise</h3>
@@ -123,7 +123,7 @@
                         </div>
                     </div>
 
-                    <div class="col-6">
+                    <div class="col-6" style="height: 100%; overflow-y: auto;">
                         <div class="card">
                             <div class="card-header">
                                 <h3 class="card-title">Part Name</h3>
