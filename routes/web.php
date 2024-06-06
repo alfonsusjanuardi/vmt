@@ -22,6 +22,9 @@ Route::get('/logout', 'Login\LoginController@logout')->name('instructor.logout')
 
 Route::get('/instructor', 'Instructor\InstructorController@index')->name('instructor.dashboard');
 
+//Users
+Route::get('/instructor/users', 'Users\UserController@index')->name('user.index');
+
 //Exercises
 Route::get('/instructor/exercises', 'Instructor\ExerciseController@index')->name('instructor.exercises');
 Route::get('/instructor/exercises/viewExercise/{id}', 'Instructor\ExerciseController@viewExercise');

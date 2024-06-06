@@ -8,7 +8,13 @@
         <img src="{{ asset('images/icons/logo_1.png') }}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-        <a href="#" class="d-block">Instructor</a>
+        @if($userID == 0)
+            <a href="#" class="d-block">Instructor</a>
+        @elseif($userID == 1)
+            <a href="#" class="d-block">Trainer</a>
+        @elseif($userID == 2)
+            <a href="#" class="d-block">Admin</a>
+        @endif
         </div>
     </div>
 
@@ -46,6 +52,16 @@
                 <p>Scenarios</p>
             </a>
         </li>
+        @if(isset($userId))
+            @if($userID == 2)
+            <li class="nav-item">
+                <a href="{{ route('user.index') }}" class="nav-link {{ Request::is('instructor/users') == 'instructor/users' ? 'active' : '' }}">
+                    <i class="nav-icon fas fa-table"></i>
+                    <p>Users</p>
+                </a>
+            </li>
+            @endif
+        @endif
         {{-- <li class="nav-item">
             <a href="{{ route('instructor.scenario_action') }}" class="nav-link {{ Request::is('instructor/scenario_action') == 'instructor/scenario_action' ? 'active' : '' }}">
                 <i class="nav-icon fas fa-table"></i>

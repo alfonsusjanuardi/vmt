@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Login;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\uservmt;
+use Session;
 
 class LoginController extends Controller
 {
@@ -17,6 +18,7 @@ class LoginController extends Controller
     {
         $user = uservmt::where('username', $request->username)->where('password', $request->password)->first();
         if ($user) {
+            session(['user_id' => $user->id_user]);
             return redirect()->intended('/instructor');
         }
 

@@ -3,7 +3,7 @@
 @section('content')
     @include('instructor.header')
 
-    @include('instructor.sidebar')
+    @include('instructor.sidebar', ['userId' => $userID])
     <style>
         .card-rounded{
             border-radius: 20px !important;
@@ -45,6 +45,19 @@
                             <a href="{{ route('instructor.scenarios') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
+                    @if($userID == 2)
+                    <div class="col-lg-3 col-6">
+                        <!-- small box -->
+                        <div class="small-box bg-success card-rounded">
+                            <div class="inner">
+                            <h3>{{ $countUser }}</h3>
+            
+                            <p>Users</p>
+                            </div>
+                            <a href="{{ route('user.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    @endif
                     <!-- ./col -->
                     {{-- <div class="col-lg-3 col-6">
                         <!-- small box -->

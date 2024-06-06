@@ -11,12 +11,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Scenarios</h1>
+                        <h1>Users</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('instructor.dashboard') }}">Home</a></li>
-                            <li class="breadcrumb-item active">Scenarios</li>
+                            <li class="breadcrumb-item active">Users</li>
                         </ol>
                     </div>
                 </div>
@@ -30,7 +30,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Scenario Table</h3>
+                                <h3 class="card-title">User Table</h3>
                                 {{-- <a class="btn btn-primary float-right mt-2" href="{{route('scenarios.create')}}" role="button">Add Scenario</a> --}}
                             </div>
                             <!-- /.card-header -->
@@ -39,24 +39,18 @@
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
-                                            <th>Scenario Name</th>
-                                            <th>Project Name</th>
+                                            <th>Name</th>
+                                            <th>Username</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach($scenario as $item)
+                                        @foreach($user as $item)
                                             <tr>
-                                                <td>{{ $item->scenario_name }}</td>
-                                                <td><a href="exercises/viewExercise/{{ $item->id_exercise }}">{{ $item->project_name }}</a></td>
+                                                <td>{{ $item->name }}</td>
+                                                <td><a href="#">{{ $item->username }}</a></td>
                                                 <td>
-                                                    {{-- <a href="scenarios/viewScenario/{{ $item->id_scenario }}" class="btn btn-info btn-lg">
-                                                        View
-                                                    </a>
-                                                    <a href="scenarios/updateScenario/{{ $item->id_scenario }}" class="btn btn-info btn-lg">
-                                                        Update 
-                                                    </a> --}}
-                                                    <a href="scenarios/deleteScenario/{{ $item->id_scenario }}" class="btn btn-danger btn-lg" onclick="return confirm('Are you sure?')">
+                                                    <a href="#" class="btn btn-danger btn-lg" onclick="return confirm('Are you sure?')">
                                                         Delete
                                                     </a>
                                                 </td>
