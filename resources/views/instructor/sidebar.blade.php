@@ -47,19 +47,26 @@
         </li> 
         <li class="nav-header">TABLES</li>
         <li class="nav-item">
-            <a href="{{ route('instructor.scenarios') }}" class="nav-link {{ Request::is('instructor/scenarios') == 'instructor/scenarios' ? 'active' : '' }}">
+            <a href="{{ route('instructor.testingvmt') }}" class="nav-link {{ Request::is('instructor/testingvmt') == 'instructor/testingvmt' ? 'active' : '' }}">
                 <i class="nav-icon fas fa-table"></i>
-                <p>Scenarios</p>
+                <p>Penilaian</p>
             </a>
         </li>
         @if(isset($userId))
             @if($userID == 2)
-            <li class="nav-item">
-                <a href="{{ route('user.index') }}" class="nav-link {{ Request::is('instructor/users') == 'instructor/users' ? 'active' : '' }}">
-                    <i class="nav-icon fas fa-table"></i>
-                    <p>Users</p>
-                </a>
-            </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('user.index') }}" class="nav-link {{ Request::is('instructor/users') == 'instructor/users' ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>Users</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('instructor.scenarios') }}" class="nav-link {{ Request::is('instructor/scenarios') == 'instructor/scenarios' ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>Scenarios</p>
+                    </a>
+                </li>
             @endif
         @endif
         {{-- <li class="nav-item">

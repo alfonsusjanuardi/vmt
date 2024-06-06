@@ -31,7 +31,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <h3 class="card-title">User Table</h3>
-                                {{-- <a class="btn btn-primary float-right mt-2" href="{{route('scenarios.create')}}" role="button">Add Scenario</a> --}}
+                                <a class="btn btn-primary float-right mt-2" href="{{route('user.create')}}" role="button">Add User</a>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
@@ -48,9 +48,12 @@
                                         @foreach($user as $item)
                                             <tr>
                                                 <td>{{ $item->name }}</td>
-                                                <td><a href="#">{{ $item->username }}</a></td>
+                                                <td><a href="users/viewUser/{{ $item->username }}">{{ $item->username }}</a></td>
                                                 <td>
-                                                    <a href="#" class="btn btn-danger btn-lg" onclick="return confirm('Are you sure?')">
+                                                    <a href="users/updateUser/{{ $item->username }}" class="btn btn-info btn-lg">
+                                                        Update 
+                                                    </a>
+                                                    <a href="users/deleteUser/{{ $item->username }}" class="btn btn-danger btn-lg" onclick="return confirm('Are you sure?')">
                                                         Delete
                                                     </a>
                                                 </td>

@@ -23,7 +23,8 @@ class uservmt extends Model
     *
     * @var string
     */
-    protected $primaryKey = 'id_user';
+    protected $primaryKey = 'username';
+    protected $keyType = 'string';
 
     /**
      * Attributes that should be mass-assignable.

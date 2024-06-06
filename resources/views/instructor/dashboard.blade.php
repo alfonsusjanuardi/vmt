@@ -34,30 +34,42 @@
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
                     <!-- ./col -->
-                    <div class="col-lg-3 col-6">
-                        <!-- small box -->
-                        <div class="small-box bg-info card-rounded">
-                            <div class="inner">
-                            <h3>{{ $countScenario }}</h3>
-            
-                            <p>Scenario</p>
-                            </div>
-                            <a href="{{ route('instructor.scenarios') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                        </div>
-                    </div>
                     @if($userID == 2)
+                        <div class="col-lg-3 col-6">
+                            <!-- small box -->
+                            <div class="small-box bg-info card-rounded">
+                                <div class="inner">
+                                <h3>{{ $countScenario }}</h3>
+                
+                                <p>Scenario</p>
+                                </div>
+                                <a href="{{ route('instructor.scenarios') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-6">
+                            <!-- small box -->
+                            <div class="small-box bg-success card-rounded">
+                                <div class="inner">
+                                <h3>{{ $countUser }}</h3>
+                
+                                <p>Users</p>
+                                </div>
+                                <a href="{{ route('user.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+                    @endif
+
                     <div class="col-lg-3 col-6">
                         <!-- small box -->
                         <div class="small-box bg-success card-rounded">
                             <div class="inner">
-                            <h3>{{ $countUser }}</h3>
+                            <h3>{{ $countPenilaian }}</h3>
             
-                            <p>Users</p>
+                            <p>Penilaian</p>
                             </div>
-                            <a href="{{ route('user.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                            <a href="{{ route('instructor.testingvmt') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
-                    @endif
                     <!-- ./col -->
                     {{-- <div class="col-lg-3 col-6">
                         <!-- small box -->

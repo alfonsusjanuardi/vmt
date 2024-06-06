@@ -24,6 +24,12 @@ Route::get('/instructor', 'Instructor\InstructorController@index')->name('instru
 
 //Users
 Route::get('/instructor/users', 'Users\UserController@index')->name('user.index');
+Route::get('/instructor/users/viewUser/{username}', 'Users\UserController@viewUser');
+Route::get('/instructor/users/create', 'Users\UserController@createUser')->name('user.create');
+Route::post('/instructor/users/storeUser', 'Users\UserController@storeUser')->name('user.storeUser');
+Route::get('/instructor/users/updateUser/{username}', 'Users\UserController@editUser');
+Route::post('/instructor/users/updateUser', 'Users\UserController@updateUser')->name('user.updateUser');
+Route::get('/instructor/users/deleteUser/{username}', 'Users\UserController@deleteUser');
 
 //Exercises
 Route::get('/instructor/exercises', 'Instructor\ExerciseController@index')->name('instructor.exercises');
