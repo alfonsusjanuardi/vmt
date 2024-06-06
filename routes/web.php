@@ -33,6 +33,7 @@ Route::get('/instructor/exercises/create', 'Instructor\ExerciseController@create
 Route::post('/instructor/exercises/storeExercise', 'Instructor\ExerciseController@storeExercise')->name('exercises.storeExercise');
 Route::get('/instructor/exercises/updateExercise/{id}', 'Instructor\ExerciseController@editExercise');
 Route::post('/instructor/exercises/updateExercise', 'Instructor\ExerciseController@updateExercise')->name('exercises.updateExercise');
+Route::post('/instructor/exercises/updateactionExercise', 'Instructor\ExerciseController@updateactionExercise')->name('exercises.updateactionExercise');
 Route::get('/instructor/exercises/deleteExercise/{id}', 'Instructor\ExerciseController@deleteExercise');
 
 //Scenarios
