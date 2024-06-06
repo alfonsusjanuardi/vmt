@@ -45,6 +45,7 @@
                                     <div class="form-group">
                                         <label for="password">Password</label>
                                         <input class="form-control" type="password" name="password" id="password" placeholder="Input Password" value="{{ $edit->password }}">
+                                        <input type="checkbox" id="togglePassword" onclick="togglePasswordVisibility()"> Show Password
                                     </div>
                                     <div class="form-group float-right">
                                         <button class="btn btn-lg btn-danger" type="reset">Reset</button>
@@ -64,4 +65,15 @@
         </section>
         <!-- /.content -->
     </div>
+
+    <script>
+        function togglePasswordVisibility() {
+            var passwordField = document.getElementById("password");
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+            } else {
+                passwordField.type = "password";
+            }
+        }
+    </script>
 @endsection

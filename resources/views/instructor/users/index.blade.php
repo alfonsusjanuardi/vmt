@@ -48,8 +48,11 @@
                                         @foreach($user as $item)
                                             <tr>
                                                 <td>{{ $item->name }}</td>
-                                                <td><a href="users/viewUser/{{ $item->username }}">{{ $item->username }}</a></td>
+                                                <td>{{ $item->username }}</td>
                                                 <td>
+                                                    <a href="users/viewUser/{{ $item->username }}" class="btn btn-info btn-lg">
+                                                        View
+                                                    </a>
                                                     <a href="users/updateUser/{{ $item->username }}" class="btn btn-info btn-lg">
                                                         Update 
                                                     </a>
