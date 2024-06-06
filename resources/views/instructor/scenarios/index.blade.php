@@ -40,7 +40,6 @@
                                     <thead>
                                         <tr>
                                             <th>Scenario Name</th>
-                                            <th>Project Name</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
