@@ -62,12 +62,8 @@ Route::get('/instructor/scenario_action/deleteScenarioAction/{id}', 'Instructor\
 
 // Testing VMT
 Route::get('/instructor/testingvmt', 'Instructor\TestingVMTController@index')->name('instructor.testingvmt');
+Route::get('/instructor/testingvmt/viewDetailReport/{id}', 'Instructor\TestingVMTController@viewDetailReport');
 Route::get('/instructor/testingvmt/viewTestingVMT/{id}', 'Instructor\TestingVMTController@viewTestingVMT');
-Route::get('/instructor/testingvmt/create', 'Instructor\TestingVMTController@createTestingVMT')->name('testingvmt.create');
-Route::post('/instructor/testingvmt/storeTestingVMT', 'Instructor\TestingVMTController@storeTestingVMT')->name('testingvmt.storeTestingVMT');
-Route::get('/instructor/testingvmt/updateTestingVMT/{id}', 'Instructor\TestingVMTController@editTestingVMT');
-Route::post('/instructor/testingvmt/updateTestingVMT', 'Instructor\TestingVMTController@updateTestingVMT')->name('testingvmt.updateTestingVMT');
-Route::get('/instructor/testingvmt/deleteTestingVMT/{id}', 'Instructor\TestingVMTController@deleteTestingVMT');
 
 //Lobby
 Route::get('/instructor/lobby', 'Lobby\LobbyController@index')->name('lobby.index');

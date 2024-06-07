@@ -16,6 +16,7 @@
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('instructor.dashboard') }}">Home</a></li>
                             <li class="breadcrumb-item"><a href="{{ route('instructor.testingvmt') }}">Penilaian</a></li>
+                            <li class="breadcrumb-item active"><a href="{{ url('instructor/testingvmt/viewDetailReport', $detailUser->username) }}">Detail Report</a></li>
                             <li class="breadcrumb-item active">View Penilaian</li>
                         </ol>
                     </div>

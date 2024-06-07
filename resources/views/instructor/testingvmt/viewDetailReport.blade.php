@@ -4,7 +4,6 @@
     @include('instructor.header')
 
     @include('instructor.sidebar', ['userId' => $userID])
-
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
@@ -16,7 +15,8 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('instructor.dashboard') }}">Home</a></li>
-                            <li class="breadcrumb-item active">Penilaian</li>
+                            <li class="breadcrumb-item"><a href="{{ route('instructor.testingvmt') }}">Penilaian</a></li>
+                            <li class="breadcrumb-item active">Detail Report</li>
                         </ol>
                     </div>
                 </div>
@@ -29,31 +29,29 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
-                            <div class="card-header">
-                                <h3 class="card-title">Penilaian Table</h3>
-                            </div>
                             <!-- /.card-header -->
                             <div class="card-body">
-                                @include('flash-message')
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
-                                            <th>Username</th>
-                                            <th>Name</th>
+                                            <th>Student</th>
+                                            <th>Instructor</th>
+                                            <th>Scenario</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach($testingvmt as $item)
-                                            <tr>
-                                                <td>{{ $item->username }}</td>
-                                                <td>{{ $item->name }}</td>
-                                                <td>
-                                                    <a href="testingvmt/viewDetailReport/{{ $item->username }}" class="btn btn-info btn-lg">
-                                                        View
-                                                    </a>
-                                                </td>
-                                            </tr>
+                                        @foreach($viewDetailReport as $view)
+                                        <tr>
+                                            <td>{{ $view->student }}</td> 
+                                            <td>{{ $view->instructor }}</td>    
+                                            <td>{{ $view->scenario }}</td> 
+                                            <td>
+                                                <a href="{{ url('instructor/testingvmt/viewTestingVMT', $view->id_action) }}" class="btn btn-info btn-lg">
+                                                    View
+                                                </a>
+                                            </td>
+                                        </tr>
                                         @endforeach
                                     </tbody>
                                 </table>
@@ -66,7 +64,6 @@
                 </div>
                 <!-- /.row -->
             </div>
-            <!-- /.container-fluid -->
         </section>
         <!-- /.content -->
     </div>
