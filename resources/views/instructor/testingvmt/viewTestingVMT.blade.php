@@ -36,7 +36,7 @@
                                     {{ csrf_field() }}
                                     <div class="form-group">
                                         <label>Trainee</label>
-                                        <input class="form-control" type="text" value="{{ $detailUser->username }}" disabled>
+                                        <input class="form-control" type="text" value="{{ $detailUser->name }}" disabled>
                                     </div>
                                     <div class="form-group">
                                         <label>Project</label>

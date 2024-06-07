@@ -25,7 +25,9 @@ class TestingVMTController extends Controller
 
     public function viewDetailReport($username) {
         $userID = session('user_id');
-        $viewDetailReport = archive_report::where('student', $username)->get();
+        $viewDetailReport = archive_report::join('uservmt', 'uservmt.username', 'archive_report.student')
+                        ->select('archive_report.*', 'uservmt.name')
+                        ->where('student', $username)->get();
         return view('instructor.testingvmt.viewDetailReport', ['viewDetailReport' => $viewDetailReport, 'userID' => $userID]);
     }
 
@@ -33,7 +35,8 @@ class TestingVMTController extends Controller
         $userID = session('user_id');
         $detailUser = testingvmt::join('exercise', 'exercise.id_exercise', '=', DB::raw('CAST(testingvmt.id_exercise AS INTEGER)'))
                     ->join('archive_report', 'archive_report.id_action', '=', 'testingvmt.id_report')
-                    ->select('testingvmt.*', 'exercise.project_name', 'archive_report.trainingmode', 'archive_report.progress', 'archive_report.exercisemode', 'archive_report.progress', 'archive_report.duration', 'archive_report.date')
+                    ->join('uservmt', 'uservmt.username', 'testingvmt.username')
+                    ->select('testingvmt.*', 'uservmt.name', 'exercise.project_name', 'archive_report.trainingmode', 'archive_report.progress', 'archive_report.exercisemode', 'archive_report.progress', 'archive_report.duration', 'archive_report.date')
                     ->where('testingvmt.id_report', $username)->first();
         $viewTestingVMT = testingvmt::join('exercise', 'exercise.id_exercise', '=', DB::raw('CAST(testingvmt.id_exercise AS INTEGER)'))
                         ->join('archive_report', 'archive_report.id_action', '=', 'testingvmt.id_report')

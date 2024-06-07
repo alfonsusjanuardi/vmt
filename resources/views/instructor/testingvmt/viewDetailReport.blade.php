@@ -43,7 +43,7 @@
                                     <tbody>
                                         @foreach($viewDetailReport as $view)
                                         <tr>
-                                            <td>{{ $view->student }}</td> 
+                                            <td>{{ $view->name }}</td> 
                                             <td>{{ $view->instructor }}</td>    
                                             <td>{{ $view->scenario }}</td> 
                                             <td>
