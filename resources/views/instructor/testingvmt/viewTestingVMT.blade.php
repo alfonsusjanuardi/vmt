@@ -29,28 +29,62 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
-                            <div class="card-header">
-                                <h3 class="card-title">View Penilaian <strong>{{ $detailUser->username }}</strong></h3>
-                            </div>
                             <!-- /.card-header -->
                             <div class="card-body">
                                 <form action="#" method="GET" enctype="multipart/form-data">
                                     {{ csrf_field() }}
-                                    @foreach($viewTestingVMT as $view)
-                                        <div class="form-group">
-                                            <label>Exercise</label>   
-                                            <input class="form-control" type="text" name="action" id="action" placeholder="Input Exercise" value="{{ $view->project_name }}" disabled> 
-                                        </div>                                   
-                                        <div class="form-group">
-                                            <label for="action">Action Name</label>
-                                            <input class="form-control" type="text" name="action" id="action" placeholder="Input Project Name" value="{{ $view->action }}" disabled>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Scenario</label>
-                                            <input class="form-control" type="text" name="scenario" id="scenario" value="{{ $view->scenario }}" disabled>
-                                        </div>                              
-                                        <hr>
-                                    @endforeach
+                                    <div class="form-group">
+                                        <label>Trainee</label>
+                                        <input class="form-control" type="text" value="{{ $detailUser->username }}" disabled>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Project</label>
+                                        <input class="form-control" type="text" value="{{ $detailUser->exercise }}" disabled>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Scenario</label>
+                                        <input class="form-control" type="text" name="scenario" id="scenario" value="{{ $detailUser->scenario }}" disabled>
+                                    </div>  
+                                    <div class="form-group">
+                                        <label>Simulation Mode</label>
+                                        <input class="form-control" type="text" value="{{ $detailUser->exercisemode }}" disabled>
+                                    </div>  
+                                    <div class="form-group">
+                                        <label>Training Mode</label>
+                                        <input class="form-control" type="text" value="{{ $detailUser->trainingmode }}" disabled>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Advancement</label>
+                                        <input class="form-control" type="text" value="{{ $detailUser->progress }}" disabled>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Duration</label>
+                                        <input class="form-control" type="text" value="{{ $detailUser->duration }}" disabled>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Date / Time</label>
+                                        <input class="form-control" type="text" value="{{ $detailUser->date }}" disabled>
+                                    </div>
+                                    <hr>
+                                    
+                                    <table id="example1" class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Action</th>
+                                                <th>Time</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach($viewTestingVMT as $view)
+                                            <tr>
+                                                <td>{{ $view->action }}</td> 
+                                                <td>{{ $view->time }}</td>     
+                                                <td>Done</td>
+                                            </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
                                 </form>
                                 <!-- Pagination Links -->
                                 <div class="d-flex justify-content-center">
