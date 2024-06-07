@@ -49,6 +49,14 @@
                                         <label for="password">Password</label>
                                         <input class="form-control" type="password" name="password" id="password" placeholder="Input Password">
                                     </div>
+                                    <div class="form-group">
+                                        <label>Role</label>
+                                        <select class="select2" name="role" id="role" style="width: 100%">
+                                            <option value="" selected disabled>-- Select weather --</option>
+                                            <option value="0">Instruktur</option>
+                                            <option value="1">Trainer</option>
+                                        </select>
+                                    </div>
                                     <div class="form-group float-right">
                                         <button class="btn btn-lg btn-danger" type="reset">Reset</button>
                                         <button class="btn btn-lg btn-primary" type="submit">Submit</button>

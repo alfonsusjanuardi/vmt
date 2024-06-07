@@ -33,7 +33,7 @@ class UserController extends Controller
             'name'          => $request['name'],
             'username'      => $request['username'],
             'password'      => $request['password'],
-            'id_user'       => session('user_id'),
+            'id_user'       => (int) $request['role'],
             'id_exercise'   => 0,
             'scenario'      => ""
         ]);
