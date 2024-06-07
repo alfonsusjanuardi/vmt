@@ -15,10 +15,11 @@ class ScenarioController extends Controller
 {
     public function index() {
         $userID = session('user_id');
+        $name = session('name');
         $scenario = scenario::join('exercise', 'exercise.id_exercise', '=', 'scenario.id_exercise')
                     ->select('scenario.*', 'exercise.project_name', 'exercise.id_exercise')
                     ->get();
-        return view('instructor.scenarios.index', ['scenario' => $scenario, 'userID' => $userID]);
+        return view('instructor.scenarios.index', ['scenario' => $scenario, 'userID' => $userID, 'name' => $name]);
     }
 
     public function viewScenario($id) {
@@ -75,12 +76,13 @@ class ScenarioController extends Controller
 
     public function viewScenarioAction($id) {
         $userID = session('user_id');
+        $name = session('name');
         $viewScenarioAction = scenario_action::join('scenario', 'scenario.id_scenario', '=', 'scenario_action.id_scenario')
                             ->join('exercise', 'exercise.id_exercise', '=', 'scenario_action.id_exercise')
                             ->select('scenario_action.*', 'scenario.scenario_name', 'exercise.project_name')
                             ->where('id', $id)
                             ->get();
-        return view('instructor.scenarios.viewScenarioAction', ['viewScenarioAction' => $viewScenarioAction, 'userID' => $userID]);
+        return view('instructor.scenarios.viewScenarioAction', ['viewScenarioAction' => $viewScenarioAction, 'userID' => $userID, 'name' => $name]);
     }
 
     public function createScenarioAction() {

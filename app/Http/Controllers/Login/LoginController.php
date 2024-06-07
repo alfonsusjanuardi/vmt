@@ -19,6 +19,7 @@ class LoginController extends Controller
         $user = uservmt::where('username', $request->username)->where('password', $request->password)->first();
         if ($user) {
             session(['user_id' => $user->id_user]);
+            session(['name' => $user->name]);
             return redirect()->intended('/instructor');
         }
 

@@ -22,8 +22,9 @@ class InstructorController extends Controller
         
         // Get the user ID from the session
         $userID = session('user_id');
+        $name = session('name');
         $countUser = uservmt::count();
 
-        return view('instructor.dashboard', ['countScenario' => $countScenario, 'countExercise' => $countExercise, 'userID' => $userID, 'countUser' => $countUser, 'countPenilaian' => $countPenilaian]);
+        return view('instructor.dashboard', ['countScenario' => $countScenario, 'countExercise' => $countExercise, 'userID' => $userID, 'countUser' => $countUser, 'countPenilaian' => $countPenilaian, 'name' => $name]);
     }
 }

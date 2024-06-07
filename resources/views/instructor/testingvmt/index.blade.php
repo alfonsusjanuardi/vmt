@@ -3,7 +3,7 @@
 @section('content')
     @include('instructor.header')
 
-    @include('instructor.sidebar', ['userId' => $userID])
+    @include('instructor.sidebar', ['userId' => $userID, 'name' => $name])
 
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->

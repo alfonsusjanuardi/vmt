@@ -8,13 +8,14 @@
         <img src="{{ asset('images/icons/logo_1.png') }}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-        @if($userID == 0)
+        {{-- @if($userID == 0)
             <a href="#" class="d-block">Instructor</a>
         @elseif($userID == 1)
             <a href="#" class="d-block">Trainer</a>
         @elseif($userID == 2)
             <a href="#" class="d-block">Admin</a>
-        @endif
+        @endif --}}
+        <a href="#" class="d-block">Hi, {{ $name }}</a>
         </div>
     </div>
 

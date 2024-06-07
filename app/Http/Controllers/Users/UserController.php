@@ -11,21 +11,24 @@ class UserController extends Controller
     public function index() {
         $user = uservmt::get();
         $userID = session('user_id');
-        return view('instructor.users.index', ['user' => $user, 'userID' => $userID]);
+        $name = session('name');
+        return view('instructor.users.index', ['user' => $user, 'userID' => $userID, 'name' => $name]);
     }
 
     public function viewUser($username) {
         $userID = session('user_id');
+        $name = session('name');
         $viewUser = uservmt::select('id_user', 'name', 'username', 'password')
                         ->where('username', $username)
                         ->get();
-        return view('instructor.users.viewUser', ['viewUser' => $viewUser, 'userID' => $userID]);
+        return view('instructor.users.viewUser', ['viewUser' => $viewUser, 'userID' => $userID, 'name' => $name]);
     }
 
     public function createUser() {
         $user = uservmt::get();
         $userID = session('user_id');
-        return view('instructor.users.create', ['user' => $user, 'userID' => $userID]);
+        $name = session('name');
+        return view('instructor.users.create', ['user' => $user, 'userID' => $userID, 'name' => $name]);
     }
 
     public function storeUser(Request $request) {
@@ -43,8 +46,9 @@ class UserController extends Controller
 
     public function editUser($username) {
         $userID = session('user_id');
+        $name = session('name');
         $editUser = uservmt::where('username',$username)->get();
-        return view('instructor.users.edit', ['editUser' => $editUser, 'userID' => $userID]);
+        return view('instructor.users.edit', ['editUser' => $editUser, 'userID' => $userID, 'name' => $name]);
     }
 
     public function updateUser(Request $request) {

@@ -3,7 +3,7 @@
 @section('content')
     @include('instructor.header')
 
-    @include('instructor.sidebar', ['userId' => $userID])
+    @include('instructor.sidebar', ['userId' => $userID, 'name' => $name])
     <style>
         .card-rounded{
             border-radius: 20px !important;

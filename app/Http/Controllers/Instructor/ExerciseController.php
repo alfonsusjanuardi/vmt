@@ -21,7 +21,8 @@ class ExerciseController extends Controller
         $viewExercise = exercise::where('id_exercise', $id)->get();
         $listScenarioAction = scenario_action::where('id_exercise', $id)->get();
         $userID = session('user_id');
-        return view('instructor.exercises.viewExercise', ['viewExercise' => $viewExercise, 'listScenarioAction' => $listScenarioAction, 'userID' => $userID]);
+        $name = session('name');
+        return view('instructor.exercises.viewExercise', ['viewExercise' => $viewExercise, 'listScenarioAction' => $listScenarioAction, 'userID' => $userID, 'name' => $name]);
     }
 
     public function createExercise() {
