@@ -52,6 +52,12 @@
                 <p>Penilaian</p>
             </a>
         </li>
+        <li class="nav-item">
+            <a href="{{ route('lobby.index') }}" class="nav-link {{ Request::is('instructor/lobby') == 'instructor/lobby' ? 'active' : '' }}">
+                <i class="nav-icon fas fa-table"></i>
+                <p>Lobby</p>
+            </a>
+        </li>
         @if(isset($userId))
             @if($userID == 2)
 

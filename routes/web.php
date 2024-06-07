@@ -68,3 +68,6 @@ Route::post('/instructor/testingvmt/storeTestingVMT', 'Instructor\TestingVMTCont
 Route::get('/instructor/testingvmt/updateTestingVMT/{id}', 'Instructor\TestingVMTController@editTestingVMT');
 Route::post('/instructor/testingvmt/updateTestingVMT', 'Instructor\TestingVMTController@updateTestingVMT')->name('testingvmt.updateTestingVMT');
 Route::get('/instructor/testingvmt/deleteTestingVMT/{id}', 'Instructor\TestingVMTController@deleteTestingVMT');
+
+//Lobby
+Route::get('/instructor/lobby', 'Lobby\LobbyController@index')->name('lobby.index');
