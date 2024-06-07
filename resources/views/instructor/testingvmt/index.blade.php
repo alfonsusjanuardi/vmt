@@ -39,6 +39,7 @@
                                     <thead>
                                         <tr>
                                             <th>Username</th>
+                                            <th>Name</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -46,6 +47,7 @@
                                         @foreach($testingvmt as $item)
                                             <tr>
                                                 <td>{{ $item->username }}</td>
+                                                <td>{{ $item->name }}</td>
                                                 <td>
                                                     <a href="testingvmt/viewTestingVMT/{{ $item->username }}" class="btn btn-info btn-lg">
                                                         View

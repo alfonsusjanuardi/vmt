@@ -18,7 +18,8 @@ class TestingVMTController extends Controller
         // $testingvmt = testingvmt::join('exercise', 'exercise.id_exercise', '=', DB::raw('CAST(testingvmt.id_exercise AS INTEGER)'))
         //             ->select('testingvmt.*', 'exercise.project_name')
         //             ->get();
-        $testingvmt = testingvmt::select('username')->distinct()->get();
+        $testingvmt = testingvmt::join('uservmt', 'uservmt.username', 'testingvmt.username')
+                    ->select('testingvmt.username', 'uservmt.name')->distinct()->get();
         return view('instructor.testingvmt.index', ['testingvmt' => $testingvmt, 'userID' => $userID]);
     }
 
