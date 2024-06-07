@@ -39,6 +39,7 @@
                                     <thead>
                                         <tr>
                                             <th>Username</th>
+                                            <th>Name</th>
                                             <th>Status</th>
                                         </tr>
                                     </thead>
@@ -46,6 +47,7 @@
                                         @foreach($join_user as $item)
                                             <tr>
                                                 <td>{{ $item->username }}</td>
+                                                <td>{{ $item->name }}</td>
                                                 <td>
                                                     Online
                                                 </td>
