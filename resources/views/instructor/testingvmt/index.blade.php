@@ -47,7 +47,7 @@
                                             <tr>
                                                 <td>{{ $item->username }}</td>
                                                 <td>
-                                                    <a href="testingvmt/viewTestingVMT/{{ $item->id }}" class="btn btn-info btn-lg">
+                                                    <a href="testingvmt/viewTestingVMT/{{ $item->username }}" class="btn btn-info btn-lg">
                                                         View
                                                     </a>
                                                 </td>
