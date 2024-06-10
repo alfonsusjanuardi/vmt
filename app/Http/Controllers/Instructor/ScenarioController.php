@@ -61,6 +61,7 @@ class ScenarioController extends Controller
     }
                                              
     public function deleteScenario($id) {
+        scenario_action::where('id_scenario', $id)->delete();
         scenario::destroy($id);
 
         return redirect()->back()->with('error','Scenario is deleted!');
