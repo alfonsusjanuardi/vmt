@@ -43,8 +43,8 @@
                                     <tbody>
                                         @foreach($viewDetailReport as $view)
                                         <tr>
-                                            <td>{{ $view->name }}</td> 
-                                            <td>{{ $view->instructor }}</td>    
+                                            <td>{{ $view->student_name }}</td> 
+                                            <td>{{ $view->instructor_name }}</td>    
                                             <td>{{ $view->scenario }}</td> 
                                             <td>
                                                 <a href="{{ url('instructor/testingvmt/viewTestingVMT', $view->id_action) }}" class="btn btn-info btn-lg">

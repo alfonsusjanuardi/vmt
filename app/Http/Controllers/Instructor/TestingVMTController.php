@@ -27,9 +27,10 @@ class TestingVMTController extends Controller
     public function viewDetailReport($username) {
         $userID = session('user_id');
         $name = session('name');
-        $viewDetailReport = archive_report::join('uservmt', 'uservmt.username', 'archive_report.student')
-                        ->select('archive_report.*', 'uservmt.name')
-                        ->where('student', $username)->get();
+        $viewDetailReport = archive_report::join('uservmt as students', 'students.username', '=', 'archive_report.student')
+                        ->join('uservmt as instructors', 'instructors.username', '=', 'archive_report.instructor')
+                        ->select('archive_report.*', 'students.name as student_name', 'instructors.name as instructor_name')
+                        ->where('archive_report.student', $username)->get();
         return view('instructor.testingvmt.viewDetailReport', ['viewDetailReport' => $viewDetailReport, 'userID' => $userID, 'name' => $name]);
     }
 
