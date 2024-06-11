@@ -30,6 +30,7 @@ class LoginController extends Controller
 
     public function logout(Request $request)
     {
+        Session::flush();
         return redirect('/');
     }
 }
