@@ -3,7 +3,7 @@
 @section('content')
     @include('instructor.header')
 
-    @include('instructor.sidebar', ['userId' => $userID, 'name' => $name])
+    @include('instructor.sidebar', ['userId' => $userID, 'name' => $name, 'username' => $username])
 
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -46,10 +46,10 @@
                                     <tbody>
                                         @foreach($testingvmt as $item)
                                             <tr>
-                                                <td>{{ $item->username }}</td>
+                                                <td>{{ $item->student }}</td>
                                                 <td>{{ $item->name }}</td>
                                                 <td>
-                                                    <a href="testingvmt/viewDetailReport/{{ $item->username }}" class="btn btn-info btn-lg">
+                                                    <a href="testingvmt/viewDetailReport/{{ $item->student }}" class="btn btn-info btn-lg">
                                                         View
                                                     </a>
                                                 </td>

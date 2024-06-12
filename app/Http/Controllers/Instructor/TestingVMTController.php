@@ -16,37 +16,62 @@ class TestingVMTController extends Controller
     {
         $userID = session('user_id');
         $name = session('name');
+        $username = session('username');
         // $testingvmt = testingvmt::join('exercise', 'exercise.id_exercise', '=', DB::raw('CAST(testingvmt.id_exercise AS INTEGER)'))
         //             ->select('testingvmt.*', 'exercise.project_name')
         //             ->get();
-        $testingvmt = testingvmt::join('uservmt', 'uservmt.username', 'testingvmt.username')
-                    ->select('testingvmt.username', 'uservmt.name')->distinct()->get();
-        return view('instructor.testingvmt.index', ['testingvmt' => $testingvmt, 'userID' => $userID, 'name' => $name]);
+
+        if ($userID == 2) {
+            $testingvmt = archive_report::join('uservmt', 'uservmt.username', 'archive_report.student')
+                        ->select('archive_report.student', 'uservmt.name')
+                        ->distinct()
+                        ->get();
+            return view('instructor.testingvmt.index', ['testingvmt' => $testingvmt, 'userID' => $userID, 'name' => $name, 'username' => $username]);
+        } else {
+            $testingvmt = archive_report::join('uservmt', 'uservmt.username', 'archive_report.student')
+                        ->select('archive_report.student', 'uservmt.name')
+                        ->distinct()
+                        ->where('archive_report.instructor', $username)
+                        ->get();
+            return view('instructor.testingvmt.index', ['testingvmt' => $testingvmt, 'userID' => $userID, 'name' => $name, 'username' => $username]);
+        }
     }
 
-    public function viewDetailReport($username) {
+    public function viewDetailReport($student) {
         $userID = session('user_id');
         $name = session('name');
-        $viewDetailReport = archive_report::join('uservmt as students', 'students.username', '=', 'archive_report.student')
-                        ->join('uservmt as instructors', 'instructors.username', '=', 'archive_report.instructor')
-                        ->select('archive_report.*', 'students.name as student_name', 'instructors.name as instructor_name')
-                        ->where('archive_report.student', $username)->get();
-        return view('instructor.testingvmt.viewDetailReport', ['viewDetailReport' => $viewDetailReport, 'userID' => $userID, 'name' => $name]);
+        $username = session('username');
+        
+        if ($userID == 2) {
+            $viewDetailReport = archive_report::join('uservmt as students', 'students.username', '=', 'archive_report.student')
+                            ->join('uservmt as instructors', 'instructors.username', '=', 'archive_report.instructor')
+                            ->select('archive_report.*', 'students.name as student_name', 'instructors.name as instructor_name')
+                            ->where('archive_report.student', $student)->get();
+            return view('instructor.testingvmt.viewDetailReport', ['viewDetailReport' => $viewDetailReport, 'userID' => $userID, 'name' => $name, 'username' => $username]);
+        } else {
+            $viewDetailReport = archive_report::join('uservmt as students', 'students.username', '=', 'archive_report.student')
+                            ->join('uservmt as instructors', 'instructors.username', '=', 'archive_report.instructor')
+                            ->select('archive_report.*', 'students.name as student_name', 'instructors.name as instructor_name')
+                            ->where('archive_report.student', $student)
+                            ->where('archive_report.instructor', $username)->get();
+            return view('instructor.testingvmt.viewDetailReport', ['viewDetailReport' => $viewDetailReport, 'userID' => $userID, 'name' => $name, 'username' => $username]);
+        }
     }
 
-    public function viewTestingVMT($username) {
+    public function viewTestingVMT($id_report) {
         $userID = session('user_id');
         $name = session('name');
+        $username = session('username');
         $detailUser = testingvmt::join('exercise', 'exercise.id_exercise', '=', DB::raw('CAST(testingvmt.id_exercise AS INTEGER)'))
                     ->join('archive_report', 'archive_report.id_action', '=', 'testingvmt.id_report')
                     ->join('uservmt', 'uservmt.username', 'testingvmt.username')
                     ->select('testingvmt.*', 'uservmt.name', 'exercise.project_name', 'archive_report.trainingmode', 'archive_report.progress', 'archive_report.exercisemode', 'archive_report.progress', 'archive_report.duration', 'archive_report.date')
-                    ->where('testingvmt.id_report', $username)->first();
+                    ->where('testingvmt.id_report', $id_report)->first();
         $viewTestingVMT = testingvmt::join('exercise', 'exercise.id_exercise', '=', DB::raw('CAST(testingvmt.id_exercise AS INTEGER)'))
                         ->join('archive_report', 'archive_report.id_action', '=', 'testingvmt.id_report')
                         ->select('testingvmt.*')
-                        ->where('testingvmt.id_report', $username)
+                        ->where('testingvmt.id_report', $id_report)
                         ->paginate(5);
-        return view('instructor.testingvmt.viewTestingVMT', ['viewTestingVMT' => $viewTestingVMT, 'userID' => $userID, 'detailUser' => $detailUser, 'name' => $name]);
+        return view('instructor.testingvmt.viewTestingVMT', ['viewTestingVMT' => $viewTestingVMT, 'userID' => $userID, 'detailUser' => $detailUser, 'name' => $name, 'username' => $username]);
     }
 }

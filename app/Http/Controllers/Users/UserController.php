@@ -12,23 +12,26 @@ class UserController extends Controller
         $user = uservmt::get();
         $userID = session('user_id');
         $name = session('name');
-        return view('instructor.users.index', ['user' => $user, 'userID' => $userID, 'name' => $name]);
+        $username = session('username');
+        return view('instructor.users.index', ['user' => $user, 'userID' => $userID, 'name' => $name, 'username' => $username]);
     }
 
     public function viewUser($username) {
         $userID = session('user_id');
         $name = session('name');
+        $username = session('username');
         $viewUser = uservmt::select('id_user', 'name', 'username', 'password')
                         ->where('username', $username)
                         ->get();
-        return view('instructor.users.viewUser', ['viewUser' => $viewUser, 'userID' => $userID, 'name' => $name]);
+        return view('instructor.users.viewUser', ['viewUser' => $viewUser, 'userID' => $userID, 'name' => $name, 'username' => $username]);
     }
 
     public function createUser() {
         $user = uservmt::get();
         $userID = session('user_id');
         $name = session('name');
-        return view('instructor.users.create', ['user' => $user, 'userID' => $userID, 'name' => $name]);
+        $username = session('username');
+        return view('instructor.users.create', ['user' => $user, 'userID' => $userID, 'name' => $name, 'username' => $username]);
     }
 
     public function storeUser(Request $request) {
@@ -47,8 +50,9 @@ class UserController extends Controller
     public function editUser($username) {
         $userID = session('user_id');
         $name = session('name');
+        $username = session('username');
         $editUser = uservmt::where('username',$username)->get();
-        return view('instructor.users.edit', ['editUser' => $editUser, 'userID' => $userID, 'name' => $name]);
+        return view('instructor.users.edit', ['editUser' => $editUser, 'userID' => $userID, 'name' => $name, 'username' => $username]);
     }
 
     public function updateUser(Request $request) {

@@ -20,6 +20,7 @@ class LoginController extends Controller
         if ($user) {
             session(['user_id' => $user->id_user]);
             session(['name' => $user->name]);
+            session(['username' => $user->username]);
             return redirect()->intended('/instructor');
         }
 
