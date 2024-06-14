@@ -27,47 +27,55 @@
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
-                <div class="row">
-                    <div class="col-12">
+                <div class="row" style="height: 80vh; overflow: hidden;">
+                    <div class="col-6" style="height: 100%; overflow-y: auto;">
                         <div class="card">
                             <!-- /.card-header -->
                             <div class="card-body">
+                                <div class="form-group">
+                                    <label>Trainee</label>
+                                    <input class="form-control" type="text" value="{{ $detailUser->name }}" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label>Project</label>
+                                    <input class="form-control" type="text" value="{{ $detailUser->exercise }}" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label>Scenario</label>
+                                    <input class="form-control" type="text" name="scenario" id="scenario" value="{{ $detailUser->scenario }}" disabled>
+                                </div>  
+                                <div class="form-group">
+                                    <label>Simulation Mode</label>
+                                    <input class="form-control" type="text" value="{{ $detailUser->exercisemode }}" disabled>
+                                </div>  
+                                <div class="form-group">
+                                    <label>Training Mode</label>
+                                    <input class="form-control" type="text" value="{{ $detailUser->trainingmode }}" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label>Advancement</label>
+                                    <input class="form-control" type="text" value="{{ $detailUser->progress }}" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label>Duration</label>
+                                    <input class="form-control" type="text" value="{{ $detailUser->duration }}" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label>Date / Time</label>
+                                    <input class="form-control" type="text" value="{{ $detailUser->date }}" disabled>
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                    <!-- /.col -->
+
+                    <div class="col-6" style="height: 100%; overflow-y: auto;">
+                        <div class="card">
+                            <div class="card-body">
                                 <form action="#" method="GET" enctype="multipart/form-data">
                                     {{ csrf_field() }}
-                                    <div class="form-group">
-                                        <label>Trainee</label>
-                                        <input class="form-control" type="text" value="{{ $detailUser->name }}" disabled>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Project</label>
-                                        <input class="form-control" type="text" value="{{ $detailUser->exercise }}" disabled>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Scenario</label>
-                                        <input class="form-control" type="text" name="scenario" id="scenario" value="{{ $detailUser->scenario }}" disabled>
-                                    </div>  
-                                    <div class="form-group">
-                                        <label>Simulation Mode</label>
-                                        <input class="form-control" type="text" value="{{ $detailUser->exercisemode }}" disabled>
-                                    </div>  
-                                    <div class="form-group">
-                                        <label>Training Mode</label>
-                                        <input class="form-control" type="text" value="{{ $detailUser->trainingmode }}" disabled>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Advancement</label>
-                                        <input class="form-control" type="text" value="{{ $detailUser->progress }}" disabled>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Duration</label>
-                                        <input class="form-control" type="text" value="{{ $detailUser->duration }}" disabled>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Date / Time</label>
-                                        <input class="form-control" type="text" value="{{ $detailUser->date }}" disabled>
-                                    </div>
-                                    <hr>
-                                    
                                     <table id="example1" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
@@ -87,16 +95,9 @@
                                         </tbody>
                                     </table>
                                 </form>
-                                <!-- Pagination Links -->
-                                <div class="d-flex justify-content-center">
-                                    {{ $viewTestingVMT->links('pagination::bootstrap-4') }}
-                                </div>
                             </div>
-                            <!-- /.card-body -->
                         </div>
-                        <!-- /.card -->
                     </div>
-                    <!-- /.col -->
                 </div>
                 <!-- /.row -->
             </div>
