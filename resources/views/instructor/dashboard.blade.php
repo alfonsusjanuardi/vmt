@@ -9,7 +9,7 @@
             border-radius: 20px !important;
         }
     </style>
-    <div class="content-wrapper" style="background: url('images/tampilan dalam_bg.png');">
+    <div class="content-wrapper" style="background-image: url('images/halaman_menu.jpg'); background-size: 100% 100%">
         <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">
