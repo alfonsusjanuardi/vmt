@@ -81,7 +81,7 @@
                                             <tr>
                                                 <td>{{ $view->action }}</td> 
                                                 <td>{{ $view->time }}</td>     
-                                                <td>Done</td>
+                                                <td>{{ $view->status }}</td>
                                             </tr>
                                             @endforeach
                                         </tbody>
