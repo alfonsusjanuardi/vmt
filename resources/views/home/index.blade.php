@@ -30,8 +30,7 @@
 <body>
 	
 	<div class="limiter">
-		<div class="container-login100" style="background: url('images/halaman_login.jpg');">
-			
+		<div class="container-login100" style="background-image: url('images/Halaman Login.jpg');">
 			<div class="wrap-login100 p-t-30 p-b-50">
 				<form class="login100-form validate-form p-b-33 p-t-5" role="form" method="POST" action="{{ route('login.submit') }}">
 					{{ csrf_field() }}
@@ -55,6 +54,7 @@
 							Login
 						</button>
 					</div>
+
 
 				</form>
 			</div>
