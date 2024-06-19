@@ -30,7 +30,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Scenario Table</h3>
+                                <h3 class="card-title">Scenario List</h3>
                                 {{-- <a class="btn btn-primary float-right mt-2" href="{{route('scenarios.create')}}" role="button">Add Scenario</a> --}}
                             </div>
                             <!-- /.card-header -->

@@ -46,19 +46,7 @@
             </p>
             </a>
         </li> 
-        <li class="nav-header">TABLES</li>
-        <li class="nav-item">
-            <a href="{{ route('instructor.testingvmt') }}" class="nav-link {{ Request::is('instructor/testingvmt') == 'instructor/testingvmt' ? 'active' : '' }}">
-                <i class="nav-icon fas fa-table"></i>
-                <p>Penilaian</p>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="{{ route('lobby.index') }}" class="nav-link {{ Request::is('instructor/lobby') == 'instructor/lobby' ? 'active' : '' }}">
-                <i class="nav-icon fas fa-table"></i>
-                <p>Lobby</p>
-            </a>
-        </li>
+        <li class="nav-header">MANAGEMENTS</li>
         @if(isset($userId))
             @if($userID == 2)
 
@@ -95,6 +83,18 @@
             </a>
         </li> --}}
         <li class="nav-header">REPORTS</li>
+        <li class="nav-item">
+            <a href="{{ route('lobby.index') }}" class="nav-link {{ Request::is('instructor/lobby') == 'instructor/lobby' ? 'active' : '' }}">
+                <i class="nav-icon fas fa-table"></i>
+                <p>Lobby</p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="{{ route('instructor.testingvmt') }}" class="nav-link {{ Request::is('instructor/testingvmt') == 'instructor/testingvmt' ? 'active' : '' }}">
+                <i class="nav-icon fas fa-table"></i>
+                <p>Evaluation</p>
+            </a>
+        </li>
         {{-- <li class="nav-item">
             <a href="{{ route('instructor.practice_mode_reports') }}" class="nav-link {{ Request::is('instructor/practice_mode_reports') == 'instructor/practice_mode_reports' ? 'active' : '' }}">
                 <i class="nav-icon fas fa-chart-bar"></i>
