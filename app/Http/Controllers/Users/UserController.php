@@ -16,12 +16,12 @@ class UserController extends Controller
         return view('instructor.users.index', ['user' => $user, 'userID' => $userID, 'name' => $name, 'username' => $username]);
     }
 
-    public function viewUser($username) {
+    public function viewUser($user_name) {
         $userID = session('user_id');
         $name = session('name');
         $username = session('username');
         $viewUser = uservmt::select('id_user', 'name', 'username', 'password')
-                        ->where('username', $username)
+                        ->where('username', $user_name)
                         ->get();
         return view('instructor.users.viewUser', ['viewUser' => $viewUser, 'userID' => $userID, 'name' => $name, 'username' => $username]);
     }

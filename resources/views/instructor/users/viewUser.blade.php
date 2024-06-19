@@ -31,7 +31,11 @@
                         <div class="card">
                             @foreach($viewUser as $view)
                             <div class="card-header">
-                                <h3 class="card-title">Hello, <strong>{{ $view->username }}!</strong></h3>
+                                @if($view->id_user == 2)
+                                    <h3 class="card-title">Hello, <strong>{{ $view->username }}!</strong></h3>
+                                @else
+                                <h3 class="card-title">Detail data <strong>{{ $view->username }}</strong></h3>
+                                @endif
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
@@ -40,6 +44,16 @@
                                     <div class="form-group">
                                         <label for="name">Name</label>
                                         <input class="form-control" type="text" name="name" id="name" placeholder="Input Name" value="{{ $view->name }}" disabled>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="role">Role</label>
+                                        @if($view->id_user == 0)
+                                            <input class="form-control" type="text" name="role" id="role" placeholder="Input Role" value="Instructor" disabled>
+                                        @elseif($view->id_user == 1)
+                                            <input class="form-control" type="text" name="role" id="role" placeholder="Input Role" value="Trainer" disabled>
+                                        @else
+                                            <input class="form-control" type="text" name="role" id="role" placeholder="Input Role" value="Admin" disabled>
+                                        @endif
                                     </div>
                                     <div class="form-group">
                                         <label for="password">Password</label>
