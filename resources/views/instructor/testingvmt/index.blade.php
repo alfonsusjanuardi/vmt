@@ -11,12 +11,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Penilaian</h1>
+                        <h1>Evaluation</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('instructor.dashboard') }}">Home</a></li>
-                            <li class="breadcrumb-item active">Penilaian</li>
+                            <li class="breadcrumb-item active">Evaluation</li>
                         </ol>
                     </div>
                 </div>
@@ -30,7 +30,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Penilaian Table</h3>
+                                <h3 class="card-title">Evaluation List</h3>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
@@ -49,7 +49,7 @@
                                                 <td>{{ $item->student }}</td>
                                                 <td>{{ $item->name }}</td>
                                                 <td>
-                                                    <a href="testingvmt/viewDetailReport/{{ $item->student }}" class="btn btn-info btn-lg">
+                                                    <a href="testingvmt/viewDetailReport/{{ $item->student }}" class="btn btn-warning btn-lg">
                                                         View
                                                     </a>
                                                 </td>

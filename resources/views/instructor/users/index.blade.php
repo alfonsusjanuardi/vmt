@@ -30,8 +30,9 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">User Table</h3>
-                                <a class="btn btn-primary float-right mt-2" href="{{route('user.create')}}" role="button">Add User</a>
+                                <h3 class="card-title">User List</h3>
+                                <a class="btn btn-primary float-right mt-2" href="{{ route('user.create') }}"
+                                    role="button">Add User</a>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
@@ -41,22 +42,36 @@
                                         <tr>
                                             <th>Name</th>
                                             <th>Username</th>
+                                            <th>Role</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach($user as $item)
+                                        @foreach ($user as $item)
                                             <tr>
                                                 <td>{{ $item->name }}</td>
                                                 <td>{{ $item->username }}</td>
                                                 <td>
-                                                    <a href="users/viewUser/{{ $item->username }}" class="btn btn-info btn-lg">
+                                                    @if ($item->userId == 0)
+                                                        <a href="#" class="d-block">Instructor</a>
+                                                    @elseif($item->userId == 1)
+                                                        <a href="#" class="d-block">Trainer</a>
+                                                    @elseif($item->userId == 2)
+                                                        <a href="#" class="d-block">Admin</a>
+                                                    @endif
+                                                </td>
+                                                <td>
+                                                    <a href="users/viewUser/{{ $item->username }}"
+                                                        class="btn btn-warning btn-lg">
                                                         View
                                                     </a>
-                                                    <a href="users/updateUser/{{ $item->username }}" class="btn btn-info btn-lg">
-                                                        Update 
+                                                    <a href="users/updateUser/{{ $item->username }}"
+                                                        class="btn btn-info btn-lg">
+                                                        Update
                                                     </a>
-                                                    <a href="users/deleteUser/{{ $item->username }}" class="btn btn-danger btn-lg" onclick="return confirm('Are you sure?')">
+                                                    <a href="users/deleteUser/{{ $item->username }}"
+                                                        class="btn btn-danger btn-lg"
+                                                        onclick="return confirm('Are you sure?')">
                                                         Delete
                                                     </a>
                                                 </td>

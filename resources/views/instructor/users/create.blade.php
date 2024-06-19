@@ -11,7 +11,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Users</h1>
+                        <h1>Add Users</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -31,7 +31,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Add User</h3>
+                                <h3 class="card-title">Create User Account</h3>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
@@ -52,9 +52,9 @@
                                     <div class="form-group">
                                         <label>Role</label>
                                         <select class="select2" name="role" id="role" style="width: 100%">
-                                            <option value="" selected disabled>-- Select weather --</option>
-                                            <option value="0">Instruktur</option>
-                                            <option value="1">Trainer</option>
+                                            <option value="" selected disabled>-- Select Role --</option>
+                                            <option value="0">Instructor</option>
+                                            <option value="1">Trainee</option>
                                         </select>
                                     </div>
                                     <div class="form-group float-right">
