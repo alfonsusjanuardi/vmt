@@ -52,12 +52,12 @@
                                                 <td>{{ $item->name }}</td>
                                                 <td>{{ $item->username }}</td>
                                                 <td>
-                                                    @if ($item->userId == 0)
-                                                        <a href="#" class="d-block">Instructor</a>
-                                                    @elseif($item->userId == 1)
-                                                        <a href="#" class="d-block">Trainer</a>
-                                                    @elseif($item->userId == 2)
-                                                        <a href="#" class="d-block">Admin</a>
+                                                    @if ($item->id_user == 0)
+                                                        Instructor
+                                                    @elseif($item->id_user == 1)
+                                                        Trainer
+                                                    @elseif($item->id_user == 2)
+                                                        Admin
                                                     @endif
                                                 </td>
                                                 <td>
