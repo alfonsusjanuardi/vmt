@@ -32,6 +32,11 @@
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('images/Halaman Login.jpg');">
 			<div class="wrap-login100 p-t-30 p-b-50">
+				<!-- Add the logo image here -->
+				<div class="login-logo" style="text-align: center; margin-bottom: 20px;">
+					<img src="{{ asset('images/icons/Akmil.png') }}" alt="Logo" style="max-width: 50%;">
+				</div>
+
 				<form class="login100-form validate-form p-b-33 p-t-5" role="form" method="POST" action="{{ route('login.submit') }}">
 					{{ csrf_field() }}
 					<div class="wrap-input100 validate-input" data-validate = "Enter username">
@@ -57,6 +62,10 @@
 
 
 				</form>
+
+				<div class="login-logo" style="text-align: center; margin-bottom: 20px;">
+					<img src="{{ asset('images/Tulisan.png') }}" alt="Logo" style="width: 100%; max-width: 100%;">
+				</div>
 			</div>
 		</div>
 	</div>
