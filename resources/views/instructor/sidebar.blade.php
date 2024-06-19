@@ -2,69 +2,74 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Sidebar -->
     <div class="sidebar">
-    <!-- Sidebar user panel (optional) -->
-    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-        <img src="{{ asset('images/icons/Akmil.png') }}" class="img-circle elevation-2" alt="User Image">
-        </div>
-        <div class="info">
-        {{-- @if($userID == 0)
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+                <img src="{{ asset('images/icons/Akmil.png') }}" class="img-circle elevation-2" alt="User Image">
+            </div>
+            <div class="info">
+                {{-- @if ($userID == 0)
             <a href="#" class="d-block">Instructor</a>
         @elseif($userID == 1)
             <a href="#" class="d-block">Trainer</a>
         @elseif($userID == 2)
             <a href="#" class="d-block">Admin</a>
         @endif --}}
-        <a href="#" class="d-block">Hi, {{ $name }}</a>
+                <a href="#" class="d-block">Hi, {{ $name }}</a>
+            </div>
         </div>
-    </div>
 
-    <!-- SidebarSearch Form -->
-    <div class="form-inline">
+        <!-- SidebarSearch Form -->
+        <div class="form-inline">
 
 
-        <div class="input-group" data-widget="sidebar-search">
-        <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-        <div class="input-group-append">
-            <button class="btn btn-sidebar">
-            <i class="fas fa-search fa-fw"></i>
-            </button>
+            <div class="input-group" data-widget="sidebar-search">
+                <input class="form-control form-control-sidebar" type="search" placeholder="Search"
+                    aria-label="Search">
+                <div class="input-group-append">
+                    <button class="btn btn-sidebar">
+                        <i class="fas fa-search fa-fw"></i>
+                    </button>
+                </div>
+            </div>
         </div>
-        </div>
-    </div>
 
-    <!-- Sidebar Menu -->
-    <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-        <!-- Add icons to the links using the .nav-icon class
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                data-accordion="false">
+                <!-- Add icons to the links using the .nav-icon class
             with font-awesome or any other icon font library -->
-        <li class="nav-item">
-            <a href="{{ route('instructor.dashboard') }}" class="nav-link {{ Request::is('instructor') ? 'active' : '' }}">
-            <i class="nav-icon fas fa-tachometer-alt"></i>
-            <p>
-                Dashboard
-            </p>
-            </a>
-        </li> 
-        <li class="nav-header">MANAGEMENTS</li>
-        @if(isset($userId))
-            @if($userID == 2)
+                <li class="nav-item">
+                    <a href="{{ route('instructor.dashboard') }}"
+                        class="nav-link {{ Request::is('instructor') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Dashboard
+                        </p>
+                    </a>
+                </li>
+                @if (isset($userId))
+                    @if ($userID == 2)
+                        <li class="nav-header">MANAGEMENTS</li>
 
-                <li class="nav-item">
-                    <a href="{{ route('user.index') }}" class="nav-link {{ Request::is('instructor/users') == 'instructor/users' ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-table"></i>
-                        <p>Users</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('instructor.scenarios') }}" class="nav-link {{ Request::is('instructor/scenarios') == 'instructor/scenarios' ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-table"></i>
-                        <p>Scenarios</p>
-                    </a>
-                </li>
-            @endif
-        @endif
-        {{-- <li class="nav-item">
+                        <li class="nav-item">
+                            <a href="{{ route('user.index') }}"
+                                class="nav-link {{ Request::is('instructor/users') == 'instructor/users' ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-table"></i>
+                                <p>Users</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('instructor.scenarios') }}"
+                                class="nav-link {{ Request::is('instructor/scenarios') == 'instructor/scenarios' ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-table"></i>
+                                <p>Scenarios</p>
+                            </a>
+                        </li>
+                    @endif
+                @endif
+                {{-- <li class="nav-item">
             <a href="{{ route('instructor.scenario_action') }}" class="nav-link {{ Request::is('instructor/scenario_action') == 'instructor/scenario_action' ? 'active' : '' }}">
                 <i class="nav-icon fas fa-table"></i>
                 <p>Scenario Action</p>
@@ -82,33 +87,35 @@
                 <p>Testing VMT</p>
             </a>
         </li> --}}
-        <li class="nav-header">REPORTS</li>
-        <li class="nav-item">
-            <a href="{{ route('lobby.index') }}" class="nav-link {{ Request::is('instructor/lobby') == 'instructor/lobby' ? 'active' : '' }}">
-                <i class="nav-icon fas fa-table"></i>
-                <p>Lobby</p>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="{{ route('instructor.testingvmt') }}" class="nav-link {{ Request::is('instructor/testingvmt') == 'instructor/testingvmt' ? 'active' : '' }}">
-                <i class="nav-icon fas fa-table"></i>
-                <p>Evaluation</p>
-            </a>
-        </li>
-        {{-- <li class="nav-item">
+                <li class="nav-header">REPORTS</li>
+                <li class="nav-item">
+                    <a href="{{ route('lobby.index') }}"
+                        class="nav-link {{ Request::is('instructor/lobby') == 'instructor/lobby' ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>Lobby</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('instructor.testingvmt') }}"
+                        class="nav-link {{ Request::is('instructor/testingvmt') == 'instructor/testingvmt' ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>Evaluation</p>
+                    </a>
+                </li>
+                {{-- <li class="nav-item">
             <a href="{{ route('instructor.practice_mode_reports') }}" class="nav-link {{ Request::is('instructor/practice_mode_reports') == 'instructor/practice_mode_reports' ? 'active' : '' }}">
                 <i class="nav-icon fas fa-chart-bar"></i>
                 <p>Practice Mode Reports</p>
             </a>
         </li> --}}
-        {{-- <li class="nav-item">
+                {{-- <li class="nav-item">
             <a href="{{ route('instructor.multiplayerReports') }}" class="nav-link {{ Request::is('instructor/multiplayerReports') == 'instructor/multiplayerReports' ? 'active' : '' }}">
                 <i class="nav-icon fas fa-chart-bar"></i>
                 <p>Multiplayer Reports</p>
             </a>
         </li> --}}
-        
-        {{-- <li class="nav-header">EXAMPLES</li>
+
+                {{-- <li class="nav-header">EXAMPLES</li>
         <li class="nav-item">
             <a href="pages/calendar.html" class="nav-link">
             <i class="nav-icon far fa-calendar-alt"></i>
@@ -386,8 +393,8 @@
             </li>
             </ul>
         </li> --}}
-    </nav>
-    <!-- /.sidebar-menu -->
+        </nav>
+        <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
 </aside>
