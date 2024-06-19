@@ -47,11 +47,11 @@ class UserController extends Controller
         return redirect('instructor/users')->with('success','User created successfully!');
     }
 
-    public function editUser($username) {
+    public function editUser($user_name) {
         $userID = session('user_id');
         $name = session('name');
         $username = session('username');
-        $editUser = uservmt::where('username',$username)->get();
+        $editUser = uservmt::where('username',$user_name)->get();
         return view('instructor.users.edit', ['editUser' => $editUser, 'userID' => $userID, 'name' => $name, 'username' => $username]);
     }
 

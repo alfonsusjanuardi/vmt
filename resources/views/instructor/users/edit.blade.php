@@ -42,6 +42,16 @@
                                         <label for="name">Name</label>
                                         <input class="form-control" type="text" name="name" id="name" placeholder="Input Name" value="{{ $edit->name }}">
                                     </div>
+                                    @if($edit->id_user == 0 || $edit->id_user == 1)
+                                    <div class="form-group">
+                                        <label for="role">Role</label>
+                                        @if($edit->id_user == 0)
+                                            <input class="form-control" type="text" name="role" id="role" placeholder="Input Role" value="Instructor" disabled>
+                                        @elseif($edit->id_user == 1)
+                                            <input class="form-control" type="text" name="role" id="role" placeholder="Input Role" value="Trainer" disabled>
+                                        @endif
+                                    </div>
+                                    @endif
                                     <div class="form-group">
                                         <label for="password">Password</label>
                                         <input class="form-control" type="password" name="password" id="password" placeholder="Input Password" value="{{ $edit->password }}">
