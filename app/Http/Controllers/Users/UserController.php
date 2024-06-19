@@ -58,6 +58,7 @@ class UserController extends Controller
     public function updateUser(Request $request) {
         uservmt::where('username', $request->username)
                 ->update([
+                    'id_user'   => (int) $request->role,
                     'name'      => $request->name,
                     'password'  => $request->password
                 ]);

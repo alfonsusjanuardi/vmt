@@ -43,14 +43,19 @@
                                         <input class="form-control" type="text" name="name" id="name" placeholder="Input Name" value="{{ $edit->name }}">
                                     </div>
                                     @if($edit->id_user == 0 || $edit->id_user == 1)
-                                    <div class="form-group">
-                                        <label for="role">Role</label>
-                                        @if($edit->id_user == 0)
-                                            <input class="form-control" type="text" name="role" id="role" placeholder="Input Role" value="Instructor" disabled>
-                                        @elseif($edit->id_user == 1)
-                                            <input class="form-control" type="text" name="role" id="role" placeholder="Input Role" value="Trainer" disabled>
-                                        @endif
-                                    </div>
+                                        <div class="form-group">
+                                            <label>Role</label>
+                                            <select class="select2" name="role" id="role" style="width: 100%">
+                                                <option value="" disabled>-- Select Role --</option>
+                                                @if($edit->id_user == 0)
+                                                    <option value="0" selected>Instructor</option>
+                                                    <option value="1">Trainee</option>
+                                                @else
+                                                    <option value="0">Instructor</option>
+                                                    <option value="1" selected>Trainer</option>
+                                                @endif
+                                            </select>
+                                        </div>
                                     @endif
                                     <div class="form-group">
                                         <label for="password">Password</label>
