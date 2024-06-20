@@ -37,6 +37,7 @@
                                             <th>Trainer</th>
                                             <th>Instructor</th>
                                             <th>Scenario</th>
+                                            <th>Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -46,10 +47,13 @@
                                             <td>{{ $view->student_name }}</td> 
                                             <td>{{ $view->instructor_name }}</td>    
                                             <td>{{ $view->scenario }}</td> 
+                                            <td>{{ $view->status }}</td>
                                             <td>
-                                                <a href="{{ url('instructor/testingvmt/viewTestingVMT', $view->id_action) }}" class="btn btn-warning btn-lg">
-                                                    View
-                                                </a>
+                                                @if($view->status == 'finished')
+                                                    <a href="{{ url('instructor/testingvmt/viewTestingVMT', $view->id_action) }}" class="btn btn-warning btn-lg">
+                                                        View
+                                                    </a>
+                                                @endif
                                                 <a href="{{ url('instructor/testingvmt/deleteDetailReport', $view->id_action) }}"
                                                     class="btn btn-danger btn-lg"
                                                     onclick="return confirm('Are you sure?')">
