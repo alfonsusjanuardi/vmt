@@ -64,6 +64,7 @@ Route::get('/instructor/scenario_action/deleteScenarioAction/{id}', 'Instructor\
 Route::get('/instructor/testingvmt', 'Instructor\TestingVMTController@index')->name('instructor.testingvmt');
 Route::get('/instructor/testingvmt/viewDetailReport/{id}', 'Instructor\TestingVMTController@viewDetailReport');
 Route::get('/instructor/testingvmt/viewTestingVMT/{id}', 'Instructor\TestingVMTController@viewTestingVMT');
+Route::get('/instructor/testingvmt/deleteDetailReport/{id}', 'Instructor\TestingVMTController@deleteDetailReport');
 
 //Lobby
 Route::get('/instructor/lobby', 'Lobby\LobbyController@index')->name('lobby.index');

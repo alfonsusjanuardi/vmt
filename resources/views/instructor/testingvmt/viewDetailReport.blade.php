@@ -50,6 +50,11 @@
                                                 <a href="{{ url('instructor/testingvmt/viewTestingVMT', $view->id_action) }}" class="btn btn-info btn-lg">
                                                     View
                                                 </a>
+                                                <a href="{{ url('instructor/testingvmt/deleteDetailReport', $view->id_action) }}"
+                                                    class="btn btn-danger btn-lg"
+                                                    onclick="return confirm('Are you sure?')">
+                                                    Delete
+                                                </a>
                                             </td>
                                         </tr>
                                         @endforeach

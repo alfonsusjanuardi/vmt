@@ -74,4 +74,11 @@ class TestingVMTController extends Controller
                         ->get();
         return view('instructor.testingvmt.viewTestingVMT', ['viewTestingVMT' => $viewTestingVMT, 'userID' => $userID, 'detailUser' => $detailUser, 'name' => $name, 'username' => $username]);
     }
+
+    public function deleteDetailReport($id_action) {
+        archive_report::where('id_action', $id_action)->delete();
+        testingvmt::where('id_report', $id_action)->delete();
+
+        return redirect()->back()->with('error','Evaluation is deleted!');
+    }
 }
