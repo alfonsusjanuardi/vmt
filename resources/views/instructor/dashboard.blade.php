@@ -48,7 +48,7 @@
                         </div>
                         <div class="col-lg-3 col-6">
                             <!-- small box -->
-                            <div class="small-box bg-success card-rounded">
+                            <div class="small-box bg-secondary card-rounded">
                                 <div class="inner">
                                 <h3>{{ $countUser }}</h3>
                 
@@ -61,11 +61,11 @@
 
                     <div class="col-lg-3 col-6">
                         <!-- small box -->
-                        <div class="small-box bg-success card-rounded">
+                        <div class="small-box bg-warning card-rounded">
                             <div class="inner">
                             <h3>{{ $countPenilaian }}</h3>
             
-                            <p>Penilaian</p>
+                            <p>Evaluation</p>
                             </div>
                             <a href="{{ route('instructor.testingvmt') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                         </div>

@@ -10,14 +10,14 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Penilaian</h1>
+                        <h1>Detail Report</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('instructor.dashboard') }}">Home</a></li>
-                            <li class="breadcrumb-item"><a href="{{ route('instructor.testingvmt') }}">Penilaian</a></li>
-                            <li class="breadcrumb-item active"><a href="{{ url('instructor/testingvmt/viewDetailReport', $detailUser->username) }}">Detail Report</a></li>
-                            <li class="breadcrumb-item active">View Penilaian</li>
+                            <li class="breadcrumb-item"><a href="{{ route('instructor.testingvmt') }}">Evaluation</a></li>
+                            <li class="breadcrumb-item active"><a href="{{ url('instructor/testingvmt/viewDetailReport', $detailUser->username) }}">Report List</a></li>
+                            <li class="breadcrumb-item active">View Detail Report</li>
                         </ol>
                     </div>
                 </div>

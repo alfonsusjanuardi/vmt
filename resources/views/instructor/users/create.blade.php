@@ -54,7 +54,7 @@
                                         <select class="select2" name="role" id="role" style="width: 100%">
                                             <option value="" selected disabled>-- Select Role --</option>
                                             <option value="0">Instructor</option>
-                                            <option value="1">Trainee</option>
+                                            <option value="1">Trainer</option>
                                         </select>
                                     </div>
                                     <div class="form-group float-right">
