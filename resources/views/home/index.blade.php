@@ -33,11 +33,11 @@
 		<div class="container-login100" style="background-image: url('images/Halaman Login.jpg');">
 			<div class="wrap-login100">
 				<!-- Add the logo image here -->
-				<div class="login-logo" style="text-align: center;">
+				<div class="login-logo text-center">
 					<img src="{{ asset('images/icons/Akmil.png') }}" alt="Logo" style="max-width: 50%;">
 				</div>
 
-				<div class="login-logo" style="text-align: center; margin-bottom: 20px;">
+				<div class="login-logo text-center mb-3">
 					<img src="{{ asset('images/Tulisan.png') }}" alt="Logo" style="width: 100%; max-width: 100%;">
 				</div>
 

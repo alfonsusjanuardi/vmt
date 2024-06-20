@@ -34,7 +34,7 @@
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
-                                            <th>Student</th>
+                                            <th>Trainer</th>
                                             <th>Instructor</th>
                                             <th>Scenario</th>
                                             <th>Action</th>

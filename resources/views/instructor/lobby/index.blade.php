@@ -38,16 +38,26 @@
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
-                                            <th>Username</th>
                                             <th>Name</th>
+                                            <th>Username</th>
+                                            <th>Role</th>
                                             <th>Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach($join_user as $item)
                                             <tr>
-                                                <td>{{ $item->username }}</td>
                                                 <td>{{ $item->name }}</td>
+                                                <td>{{ $item->username }}</td>
+                                                <td>
+                                                    @if ($item->id_user == 0)
+                                                        Instructor
+                                                    @elseif($item->id_user == 1)
+                                                        Trainer
+                                                    @elseif($item->id_user == 2)
+                                                        Admin
+                                                    @endif
+                                                </td>
                                                 <td>
                                                     Online
                                                 </td>

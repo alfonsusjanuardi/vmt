@@ -43,7 +43,7 @@
                 
                                 <p>Scenario</p>
                                 </div>
-                                <a href="{{ route('instructor.scenarios') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                                <a href="{{ route('instructor.scenarios') }}" class="small-box-footer" style="border-radius: 0px 0px 20px 20px !important;">More info <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
                         <div class="col-lg-3 col-6">
@@ -54,7 +54,7 @@
                 
                                 <p>Users</p>
                                 </div>
-                                <a href="{{ route('user.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                                <a href="{{ route('user.index') }}" class="small-box-footer" style="border-radius: 0px 0px 20px 20px !important;">More info <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
                     @endif
@@ -67,7 +67,7 @@
             
                             <p>Evaluation</p>
                             </div>
-                            <a href="{{ route('instructor.testingvmt') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                            <a href="{{ route('instructor.testingvmt') }}" class="small-box-footer" style="border-radius: 0px 0px 20px 20px !important;">More info <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <!-- ./col -->
@@ -112,6 +112,9 @@
             </div><!-- /.container-fluid -->
         </section>
         <!-- /.content -->
+            <div class="login-logo position-fixed" style="bottom: 5%; right: -21%; z-index: 10;">
+                <img src="{{ asset('images/Tulisan.png') }}" alt="Logo" style="max-width: 50%;">
+            </div>
     </div>
 	<!-- /.content-wrapper -->
 @endsection

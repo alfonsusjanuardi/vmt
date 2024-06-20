@@ -38,16 +38,16 @@
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
-                                            <th>Username</th>
                                             <th>Name</th>
+                                            <th>Username</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach($testingvmt as $item)
                                             <tr>
-                                                <td>{{ $item->student }}</td>
                                                 <td>{{ $item->name }}</td>
+                                                <td>{{ $item->student }}</td>
                                                 <td>
                                                     <a href="testingvmt/viewDetailReport/{{ $item->student }}" class="btn btn-warning btn-lg">
                                                         View

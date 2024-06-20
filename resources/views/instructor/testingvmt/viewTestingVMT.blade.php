@@ -33,7 +33,7 @@
                             <!-- /.card-header -->
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label>Trainee</label>
+                                    <label>Trainer</label>
                                     <input class="form-control" type="text" value="{{ $detailUser->name }}" disabled>
                                 </div>
                                 <div class="form-group">
