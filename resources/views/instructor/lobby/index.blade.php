@@ -40,7 +40,6 @@
                                         <tr>
                                             <th>Name</th>
                                             <th>Username</th>
-                                            <th>Role</th>
                                             <th>Status</th>
                                         </tr>
                                     </thead>
@@ -49,15 +48,6 @@
                                             <tr>
                                                 <td>{{ $item->name }}</td>
                                                 <td>{{ $item->username }}</td>
-                                                <td>
-                                                    @if ($item->id_user == 0)
-                                                        Instructor
-                                                    @elseif($item->id_user == 1)
-                                                        Trainer
-                                                    @elseif($item->id_user == 2)
-                                                        Admin
-                                                    @endif
-                                                </td>
                                                 <td>
                                                     Online
                                                 </td>
