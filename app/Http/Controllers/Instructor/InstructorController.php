@@ -9,6 +9,7 @@ use App\scenario;
 use App\exercise;
 use App\uservmt;
 use App\testingvmt;
+use App\join_user;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -19,6 +20,7 @@ class InstructorController extends Controller
         $countScenario = scenario::count();
         $countExercise = exercise::count();
         $countPenilaian = testingvmt::count();
+        $countJoinUser = join_user::count();
         
         // Get the user ID from the session
         $userID = session('user_id');
@@ -26,6 +28,6 @@ class InstructorController extends Controller
         $username = session('username');
         $countUser = uservmt::count();
 
-        return view('instructor.dashboard', ['countScenario' => $countScenario, 'countExercise' => $countExercise, 'userID' => $userID, 'countUser' => $countUser, 'countPenilaian' => $countPenilaian, 'name' => $name, 'username' => $username]);
+        return view('instructor.dashboard', ['countScenario' => $countScenario, 'countExercise' => $countExercise, 'userID' => $userID, 'countUser' => $countUser, 'countPenilaian' => $countPenilaian, 'countJoinUser' => $countJoinUser, 'name' => $name, 'username' => $username]);
     }
 }
