@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\CheckInstructorSession;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,20 +21,20 @@ Route::get('/', function () {
 Route::post('/login', 'Login\LoginController@login')->name('login.submit');
 Route::get('/logout', 'Login\LoginController@logout')->name('instructor.logout');
 
-Route::get('/instructor', 'Instructor\InstructorController@index')->name('instructor.dashboard');
+Route::get('/instructor', 'Instructor\InstructorController@index')->middleware('check.session')->name('instructor.dashboard');
 
 //Users
-Route::get('/instructor/users', 'Users\UserController@index')->name('user.index');
-Route::get('/instructor/users/viewUser/{username}', 'Users\UserController@viewUser');
-Route::get('/instructor/users/create', 'Users\UserController@createUser')->name('user.create');
+Route::get('/instructor/users', 'Users\UserController@index')->middleware('check.session')->name('user.index');
+Route::get('/instructor/users/viewUser/{username}', 'Users\UserController@viewUser')->middleware('check.session');
+Route::get('/instructor/users/create', 'Users\UserController@createUser')->middleware('check.session')->name('user.create');
 Route::post('/instructor/users/storeUser', 'Users\UserController@storeUser')->name('user.storeUser');
-Route::get('/instructor/users/updateUser/{username}', 'Users\UserController@editUser');
+Route::get('/instructor/users/updateUser/{username}', 'Users\UserController@editUser')->middleware('check.session');
 Route::post('/instructor/users/updateUser', 'Users\UserController@updateUser')->name('user.updateUser');
 Route::get('/instructor/users/deleteUser/{username}', 'Users\UserController@deleteUser');
 
 //Exercises
 Route::get('/instructor/exercises', 'Instructor\ExerciseController@index')->name('instructor.exercises');
-Route::get('/instructor/exercises/viewExercise/{id}', 'Instructor\ExerciseController@viewExercise');
+Route::get('/instructor/exercises/viewExercise/{id}', 'Instructor\ExerciseController@viewExercise')->middleware('check.session');
 Route::get('/instructor/exercises/viewExercise/scenario_action/viewScenarioAction/{id}', 'Instructor\ScenarioController@viewScenarioAction');
 Route::get('/instructor/exercises/create', 'Instructor\ExerciseController@createExercise')->name('exercises.create');
 Route::post('/instructor/exercises/storeExercise', 'Instructor\ExerciseController@storeExercise')->name('exercises.storeExercise');
@@ -43,7 +44,7 @@ Route::post('/instructor/exercises/updateactionExercise', 'Instructor\ExerciseCo
 Route::get('/instructor/exercises/deleteExercise/{id}', 'Instructor\ExerciseController@deleteExercise');
 
 //Scenarios
-Route::get('/instructor/scenarios', 'Instructor\ScenarioController@index')->name('instructor.scenarios');
+Route::get('/instructor/scenarios', 'Instructor\ScenarioController@index')->middleware('check.session')->name('instructor.scenarios');
 Route::get('/instructor/scenarios/viewScenario/{id}', 'Instructor\ScenarioController@viewScenario');
 Route::get('/instructor/scenarios/create', 'Instructor\ScenarioController@createScenario')->name('scenarios.create');
 Route::post('/instructor/scenarios/storeScenario', 'Instructor\ScenarioController@storeScenario')->name('scenarios.storeScenario');
@@ -61,10 +62,10 @@ Route::post('/instructor/scenario_action/updateScenarioAction', 'Instructor\Scen
 Route::get('/instructor/scenario_action/deleteScenarioAction/{id}', 'Instructor\ScenarioController@deleteScenarioAction');
 
 // Testing VMT
-Route::get('/instructor/testingvmt', 'Instructor\TestingVMTController@index')->name('instructor.testingvmt');
-Route::get('/instructor/testingvmt/viewDetailReport/{id}', 'Instructor\TestingVMTController@viewDetailReport');
-Route::get('/instructor/testingvmt/viewTestingVMT/{id}', 'Instructor\TestingVMTController@viewTestingVMT');
-Route::get('/instructor/testingvmt/deleteDetailReport/{id}', 'Instructor\TestingVMTController@deleteDetailReport');
+Route::get('/instructor/testingvmt', 'Instructor\TestingVMTController@index')->middleware('check.session')->name('instructor.testingvmt');
+Route::get('/instructor/testingvmt/viewDetailReport/{id}', 'Instructor\TestingVMTController@viewDetailReport')->middleware('check.session');
+Route::get('/instructor/testingvmt/viewTestingVMT/{id}', 'Instructor\TestingVMTController@viewTestingVMT')->middleware('check.session');
+Route::get('/instructor/testingvmt/deleteDetailReport/{id}', 'Instructor\TestingVMTController@deleteDetailReport')->middleware('check.session');
 
 //Lobby
-Route::get('/instructor/lobby', 'Lobby\LobbyController@index')->name('lobby.index');
+Route::get('/instructor/lobby', 'Lobby\LobbyController@index')->middleware('check.session')->name('lobby.index');
