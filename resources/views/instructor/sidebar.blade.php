@@ -3,24 +3,14 @@
     <!-- Sidebar -->
     <div class="sidebar">
         <!-- Sidebar user panel (optional) -->
-        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-            <div class="image">
-                <img src="{{ asset('images/icons/Akmil.png') }}" class="img-circle elevation-2" alt="User Image">
-            </div>
-            <div class="info">
-                {{-- @if ($userID == 0)
-            <a href="#" class="d-block">Instructor</a>
-        @elseif($userID == 1)
-            <a href="#" class="d-block">Trainer</a>
-        @elseif($userID == 2)
-            <a href="#" class="d-block">Admin</a>
-        @endif --}}
-                <a href="#" class="d-block">Hi, {{ $name }}</a>
+        <div class="user-panel pb-3 mb-3 d-flex">
+            <div class="img-thumbnail text-center">
+                <img src="{{ asset('images/icons/Vitual Playmode.png') }}" alt="User Image" style="width: 75%">
             </div>
         </div>
 
         <!-- SidebarSearch Form -->
-        <div class="form-inline">
+        {{-- <div class="form-inline">
 
 
             <div class="input-group" data-widget="sidebar-search">
@@ -32,7 +22,7 @@
                     </button>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
         <!-- Sidebar Menu -->
         <nav class="mt-2">

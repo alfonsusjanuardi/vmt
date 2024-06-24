@@ -87,14 +87,14 @@
                                             <label for="media_preview">Media Preview</label>
                                             <br>
                                             @if ($view->media_type == 'Video')
-                                            <video width="320" height="240" controls>
+                                            <video width="320" height="210" controls>
                                                 <source src="{{ url('http://'.env('DB_HOST').'/vr-content/Server/media_vmt/'.$view->media_name) }}" type="video/mp4">
                                                 Browser tidak support video
                                             </video>
                                             @elseif ($view->media_type == 'Youtube')
                                             <br><a href="{{ $view->media_name }}" target="_blank">{{ $view->media_name }}</a>
                                             @elseif ($view->media_type == 'Picture')
-                                            <img src="{{ url('http://'.env('DB_HOST').'/vr-content/Server/media_vmt/'.$view->media_name) }}" alt="Media Preview" width="320" height="240">
+                                            <img src="{{ url('http://'.env('DB_HOST').'/vr-content/Server/media_vmt/'.$view->media_name) }}" alt="Media Preview" width="320" height="210">
                                             @endif
                                         </div>
                                         @else
@@ -102,14 +102,14 @@
                                             <label for="media_preview">Media Preview</label>
                                             <br>
                                             @if ($view->media_type == 'Video')
-                                            <video width="320" height="240" controls>
+                                            <video width="320" height="210" controls>
                                                 <source src="{{ Storage::url('media_upload/default_image.jpg') }}" type="video/mp4">
                                                 Browser tidak support video
                                             </video>
                                             @elseif ($view->media_type == 'Youtube')
                                             <br><a href="{{ $view->media_name }}" target="_blank">{{ $view->media_name }}</a>
                                             @elseif ($view->media_type == 'Picture')
-                                            <img src="{{ Storage::url('media_upload/default_image.jpg') }}" alt="Media Preview" width="320" height="240">
+                                            <img src="{{ Storage::url('media_upload/default_image.jpg') }}" alt="Media Preview" width="320" height="210">
                                             @endif
                                         </div>
                                         @endif
@@ -139,35 +139,35 @@
                                         <div class="media-body">
                                             <label for="media_preview">Media Preview</label>
                                             @if ($list->type == 'Video')
-                                            <video width="320" height="240" controls>
+                                            <video width="320" height="210" controls>
                                                 <source src="{{ url('http://'.env('DB_HOST').'/vr-content/Server/media_vmt/'.$list->media_name) }}" type="video/mp4">
                                                 Browser tidak support video
                                             </video>
                                             @elseif ($list->type == 'Youtube')
                                             <br><a href="{{ $list->media_name }}" target="_blank">{{ $list->media_name }}</a>
                                             @elseif ($list->type == 'Picture')
-                                            <img src="{{ url('http://'.env('DB_HOST').'/vr-content/Server/media_vmt/'.$list->media_name) }}" alt="Media Preview" width="320" height="240">
+                                            <img src="{{ url('http://'.env('DB_HOST').'/vr-content/Server/media_vmt/'.$list->media_name) }}" alt="Media Preview" width="320" height="210">
                                             @endif
                                         </div>
                                         @else
                                         <div class="media-body">
                                             <label for="media_preview">Media Preview</label>
                                             @if ($list->type == 'Video')
-                                            <video width="320" height="240" controls>
+                                            <video width="320" height="210" controls>
                                                 <source src="{{ Storage::url('media_upload/default_image.jpg') }}" type="video/mp4">
                                                 Browser tidak support video
                                             </video>
                                             @elseif ($list->type == 'Youtube')
                                             <br><a href="{{ $list->media_name }}" target="_blank">{{ $list->media_name }}</a>
                                             @elseif ($list->type == 'Picture')
-                                            <img src="{{ Storage::url('media_upload/default_image.jpg') }}" alt="Media Preview" width="320" height="240">
+                                            <img src="{{ Storage::url('media_upload/default_image.jpg') }}" alt="Media Preview" width="320" height="210">
                                             @endif
                                         </div>
                                         @endif
                                         <div class="media-body">
                                             <div class="form-group">
                                                 <label for="actions_name">Action Name</label>
-                                                <input type="text" class="form-control" name="actions[{{ $loop->index }}][actions_name]" value="{{ $list->actions_name }}">
+                                                <input type="text" class="form-control" name="actions[{{ $loop->index }}][actions_name]" value="{{ $list->actions_name }}" disabled>
                                                 <input type="hidden" name="actions[{{ $loop->index }}][id]" value="{{ $list->id }}">
                                             </div>
                                             <div class="form-group">

@@ -123,7 +123,7 @@
             </div><!-- /.container-fluid -->
         </section>
         <!-- /.content -->
-            <div class="login-logo position-fixed" style="bottom: 5%; right: -21%; z-index: 10;">
+            <div class="login-logo position-fixed" style="bottom: 5%; right: -14%; z-index: 10;">
                 <img src="{{ asset('images/Tulisan.png') }}" alt="Logo" style="max-width: 50%;">
             </div>
     </div>

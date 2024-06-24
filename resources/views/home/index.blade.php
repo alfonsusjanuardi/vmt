@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="{{ asset('/images/icons/Akmil.png') }}"/>
+	<link rel="icon" type="image/png" href="{{ asset('/images/icons/Vitual Playmode.png') }}"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{{ asset('/vendor/bootstrap/css/bootstrap.min.css') }}">
 <!--===============================================================================================-->
@@ -34,10 +34,10 @@
 			<div class="wrap-login100">
 				<!-- Add the logo image here -->
 				<div class="login-logo text-center">
-					<img src="{{ asset('images/icons/Akmil.png') }}" alt="Logo" style="max-width: 50%;">
+					<img src="{{ asset('images/icons/Vitual Playmode.png') }}" alt="Logo" style="max-width: 40%;">
 				</div>
 
-				<div class="login-logo text-center mb-3">
+				<div class="login-logo text-center mt-3 mb-3">
 					<img src="{{ asset('images/Tulisan.png') }}" alt="Logo" style="width: 100%; max-width: 100%;">
 				</div>
 
