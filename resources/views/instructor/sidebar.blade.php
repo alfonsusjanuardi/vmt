@@ -3,7 +3,7 @@
     <!-- Sidebar -->
     <div class="sidebar">
         <!-- Sidebar user panel (optional) -->
-        <div class="user-panel pb-3 mb-3 d-flex">
+        <div class="user-panel mt-2 pb-2 mb-3 d-flex">
             <div class="img-thumbnail text-center">
                 <img src="{{ asset('images/icons/Vitual Playmode.png') }}" alt="User Image" style="width: 75%">
             </div>

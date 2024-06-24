@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>VMT</title>
+    <title>Virtual Reality Player System</title>
     <link rel="icon" type="image/png" href="{{ asset('/images/icons/Vitual Playmode.png') }}" />
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -42,15 +42,18 @@
 
         <!-- Preloader -->
         <div class="preloader flex-column justify-content-center align-items-center">
-            <img class="animation__shake" src="{{ asset('dist/img/AdminLTELogo.png') }}" alt="AdminLTELogo"
-                height="60" width="60">
+            <img class="animation__shake" src="{{ asset('images/icons/Vitual Playmode.png') }}" alt="VPLogo"
+                width="300px">
         </div>
 
         @yield('content')
 
         <footer class="main-footer">
-            <strong>Copyright &copy; 2024 AKMIL</strong>
-            All rights reserved.
+            <strong>Copyright &copy; 
+                <span id="copyright">
+                    <script>document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))</script>
+                </span>
+                 AKMIL.</strong> All rights reserved.
             {{-- <div class="float-right d-none d-sm-inline-block">
                 <b>Version</b> 3.2.0
             </div> --}}
