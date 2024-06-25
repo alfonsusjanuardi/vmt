@@ -5,8 +5,16 @@
 
     @include('instructor.sidebar', ['userId' => $userID, 'name' => $name, 'username' => $username])
     <style>
-        .card-rounded{
+        .card-rounded {
             border-radius: 20px !important;
+        }
+            .custom-logo{
+                max-width: 100%
+            }
+        @media screen and (min-width: 1024px) {
+            .custom-logo{
+                max-width: 40%
+            }
         }
     </style>
     <div class="content-wrapper" style="background-image: url('images/halaman_menu.jpg'); background-size: 100% 100%">
@@ -14,15 +22,15 @@
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1 class="m-0">Dashboard</h1>
-                </div><!-- /.col -->
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="{{ route('instructor.dashboard') }}">Home</a></li>
-                    <li class="breadcrumb-item active">Dashboard</li>
-                    </ol>
-                </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <h1 class="m-0">Dashboard</h1>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="{{ route('instructor.dashboard') }}">Home</a></li>
+                            <li class="breadcrumb-item active">Dashboard</li>
+                        </ol>
+                    </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
         </div>
@@ -34,40 +42,45 @@
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
                     <!-- ./col -->
-                    @if($userID == 2)
+                    @if ($userID == 2)
                         <div class="col-lg-3 col-6">
                             <!-- small box -->
                             <div class="small-box bg-secondary card-rounded">
                                 <div class="inner">
-                                <h3>{{ $countUser }}</h3>
-                
-                                <p>Users</p>
+                                    <h3>{{ $countUser }}</h3>
+
+                                    <p>Users</p>
                                 </div>
-                                <a href="{{ route('user.index') }}" class="small-box-footer" style="border-radius: 0px 0px 20px 20px !important;">More info <i class="fas fa-arrow-circle-right"></i></a>
+                                <a href="{{ route('user.index') }}" class="small-box-footer"
+                                    style="border-radius: 0px 0px 20px 20px !important;">More info <i
+                                        class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
                         <div class="col-lg-3 col-6">
                             <!-- small box -->
                             <div class="small-box bg-success card-rounded">
                                 <div class="inner">
-                                <h3>{{ $countScenario }}</h3>
-                
-                                <p>Scenario</p>
+                                    <h3>{{ $countScenario }}</h3>
+
+                                    <p>Scenario</p>
                                 </div>
-                                <a href="{{ route('instructor.scenarios') }}" class="small-box-footer" style="border-radius: 0px 0px 20px 20px !important;">More info <i class="fas fa-arrow-circle-right"></i></a>
+                                <a href="{{ route('instructor.scenarios') }}" class="small-box-footer"
+                                    style="border-radius: 0px 0px 20px 20px !important;">More info <i
+                                        class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
                     @endif
-
                     <div class="col-lg-3 col-6">
                         <!-- small box -->
                         <div class="small-box bg-info card-rounded">
                             <div class="inner">
-                            <h3>{{ $countPenilaian }}</h3>
-            
-                            <p>Evaluation</p>
+                                <h3>{{ $countPenilaian }}</h3>
+
+                                <p>Evaluation</p>
                             </div>
-                            <a href="{{ route('instructor.testingvmt') }}" class="small-box-footer" style="border-radius: 0px 0px 20px 20px !important;">More info <i class="fas fa-arrow-circle-right"></i></a>
+                            <a href="{{ route('instructor.testingvmt') }}" class="small-box-footer"
+                                style="border-radius: 0px 0px 20px 20px !important;">More info <i
+                                    class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <div class="col-lg-3 col-6">
@@ -75,11 +88,17 @@
                         <div class="small-box bg-warning card-rounded">
                             <div class="inner">
                                 <h3>{{ $countJoinUser }}</h3>
-            
-                            <p>Online Users</p>
+
+                                <p>Online Users</p>
                             </div>
-                            <a href="{{ route('lobby.index') }}" class="small-box-footer" style="border-radius: 0px 0px 20px 20px !important;">More info <i class="fas fa-arrow-circle-right"></i></a>
+                            <a href="{{ route('lobby.index') }}" class="small-box-footer"
+                                style="border-radius: 0px 0px 20px 20px !important;">More info <i
+                                    class="fas fa-arrow-circle-right"></i></a>
                         </div>
+                    </div>
+                    
+                    <div class="col-12 col-lg-12 text-center" style="margin-top: 175px">
+                        <img class="custom-logo" src="{{ asset('images/Tulisan.png') }}" alt="Logo">
                     </div>
                     <!-- ./col -->
                     {{-- <div class="col-lg-3 col-6">
@@ -123,9 +142,6 @@
             </div><!-- /.container-fluid -->
         </section>
         <!-- /.content -->
-            <div class="login-logo position-fixed" style="bottom: 5%; right: -14%; z-index: 10;">
-                <img src="{{ asset('images/Tulisan.png') }}" alt="Logo" style="max-width: 50%;">
-            </div>
     </div>
-	<!-- /.content-wrapper -->
+    <!-- /.content-wrapper -->
 @endsection

@@ -1,13 +1,13 @@
 <!-- Main Sidebar Container -->
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<aside class="main-sidebar sidebar-dark-indigo elevation-4">
     <!-- Sidebar -->
     <div class="sidebar">
         <!-- Sidebar user panel (optional) -->
-        <div class="user-panel mt-2 pb-2 mb-3 d-flex">
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="img-thumbnail text-center">
-                <img src="{{ asset('images/icons/Vitual Playmode.png') }}" alt="User Image" style="width: 75%">
+                <img src="{{ asset('images/icons/Vitual Playmode.png') }}" alt="User Image" style="width: 60%">
             </div>
-        </div>
+        </div> {{-- --}}
 
         <!-- SidebarSearch Form -->
         {{-- <div class="form-inline">
@@ -46,14 +46,14 @@
                         <li class="nav-item">
                             <a href="{{ route('user.index') }}"
                                 class="nav-link {{ Request::is('instructor/users') == 'instructor/users' ? 'active' : '' }}">
-                                <i class="nav-icon fas fa-table"></i>
+                                <i class="nav-icon fas fa-user"></i>
                                 <p>Users</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('instructor.scenarios') }}"
                                 class="nav-link {{ Request::is('instructor/scenarios') == 'instructor/scenarios' ? 'active' : '' }}">
-                                <i class="nav-icon fas fa-table"></i>
+                                <i class="nav-icon fas fa-film"></i>
                                 <p>Scenarios</p>
                             </a>
                         </li>
@@ -81,14 +81,14 @@
                 <li class="nav-item">
                     <a href="{{ route('instructor.testingvmt') }}"
                         class="nav-link {{ Request::is('instructor/testingvmt') == 'instructor/testingvmt' ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-table"></i>
+                        <i class="nav-icon fas fa-list"></i>
                         <p>Evaluation</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('lobby.index') }}"
                         class="nav-link {{ Request::is('instructor/lobby') == 'instructor/lobby' ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-table"></i>
+                        <i class="nav-icon fas fa-users"></i>
                         <p>Lobby</p>
                     </a>
                 </li>
