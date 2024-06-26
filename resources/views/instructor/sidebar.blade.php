@@ -45,14 +45,14 @@
 
                         <li class="nav-item">
                             <a href="{{ route('user.index') }}"
-                                class="nav-link {{ Request::is('instructor/users') == 'instructor/users' ? 'active' : '' }}">
+                                class="nav-link {{ Request::is('instructor/users') || Request::is('instructor/users/*') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-user"></i>
                                 <p>Users</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('instructor.scenarios') }}"
-                                class="nav-link {{ Request::is('instructor/scenarios') == 'instructor/scenarios' ? 'active' : '' }}">
+                                class="nav-link {{ Request::is('instructor/scenarios') || Request::is('instructor/exercises/*') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-film"></i>
                                 <p>Scenarios</p>
                             </a>
@@ -80,7 +80,7 @@
                 <li class="nav-header">REPORTS</li>
                 <li class="nav-item">
                     <a href="{{ route('instructor.testingvmt') }}"
-                        class="nav-link {{ Request::is('instructor/testingvmt') == 'instructor/testingvmt' ? 'active' : '' }}">
+                        class="nav-link {{ Request::is('instructor/testingvmt') || Request::is('instructor/testingvmt/*') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-list"></i>
                         <p>Evaluation</p>
                     </a>
