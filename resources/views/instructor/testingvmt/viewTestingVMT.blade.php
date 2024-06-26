@@ -79,6 +79,7 @@
                                     <table id="example1" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
+                                                <th>No</th>
                                                 <th>Action</th>
                                                 <th>Time</th>
                                                 <th>Status</th>
@@ -87,6 +88,7 @@
                                         <tbody>
                                             @foreach($viewTestingVMT as $view)
                                             <tr>
+                                                <th>{{ $loop->iteration }}</th>
                                                 <td>{{ $view->action }}</td> 
                                                 <td>{{ $view->time }}</td>     
                                                 <td>{{ $view->status }}</td>

@@ -129,6 +129,12 @@
                     [10, 20, 50, "All"]
                 ],
                 "iDisplayLength": 10
+                // "columnDefs": [{ width: '20%', targets: 0 }],
+                // "fixedColumns": true,
+                // "paging": false,
+                // "scrollCollapse": true,
+                // "scrollX": true,
+                // "scrollY": 500
             }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
         });
 

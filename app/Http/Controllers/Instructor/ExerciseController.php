@@ -19,7 +19,7 @@ class ExerciseController extends Controller
 
     public function viewExercise($id) {
         $viewExercise = exercise::where('id_exercise', $id)->get();
-        $listScenarioAction = scenario_action::where('id_exercise', $id)->get();
+        $listScenarioAction = scenario_action::where('id_exercise', $id)->orderBy('id')->get();
         $userID = session('user_id');
         $name = session('name');
         $username = session('username');
@@ -78,29 +78,35 @@ class ExerciseController extends Controller
     public function updateactionExercise(Request $request) {
         foreach ($request->actions as $key => $action) {
             $scenarioAction = scenario_action::find($action['id']);
-
-            $scenarioAction->actions_name = $action['actions_name'];
-            $scenarioAction->type = $action['type'];
-
-            if ($action['type'] == 'Youtube') {
-                $scenarioAction->media_name = $action['media_link'];
-            } else {
-                if ($request->hasFile('actions.' . $key . '.media_upload')) {
-                    $file = $request->file('actions.' . $key . '.media_upload');
-                    $filename = $file->getClientOriginalName();
-                    // $path = $file->storeAs('C:\laragon\www', $filename);
-                    $path = 'C:/laragon/www/vr-content/Server/media_vmt' . $filename;
-                    $file->move('C:/laragon/www/vr-content/Server/media_vmt', $filename);
-                    $scenarioAction->media_name = $filename;
+    
+            if (isset($action['actions_name'])) {
+                $scenarioAction->actions_name = $action['actions_name'];
+            }
+    
+            if (isset($action['type'])) {
+                $scenarioAction->type = $action['type'];
+    
+                if ($action['type'] == 'Youtube') {
+                    if (isset($action['media_link'])) {
+                        $scenarioAction->media_name = $action['media_link'];
+                    }
+                } else {
+                    if ($request->hasFile('actions.' . $key . '.media_upload')) {
+                        $file = $request->file('actions.' . $key . '.media_upload');
+                        $filename = $file->getClientOriginalName();
+                        $path = 'C:/laragon/www/vr-content/Server/media_vmt/' . $filename;
+                        $file->move('C:/laragon/www/vr-content/Server/media_vmt', $filename);
+                        $scenarioAction->media_name = $filename;
+                    }
                 }
             }
-
+    
             $scenarioAction->save();
         }
-
+    
         return redirect('instructor/scenarios')->with('info', 'Action updated successfully!');
     }
-
+    
     public function deleteExercise($id) {
         exercise::destroy($id);
 

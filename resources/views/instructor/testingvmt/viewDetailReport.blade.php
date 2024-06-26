@@ -34,9 +34,12 @@
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
+                                            <th>No</th>
                                             <th>Trainer</th>
                                             <th>Instructor</th>
                                             <th>Scenario</th>
+                                            <th>Date</th>
+                                            <th>Time</th>
                                             <th>Status</th>
                                             <th>Action</th>
                                         </tr>
@@ -44,9 +47,17 @@
                                     <tbody>
                                         @foreach($viewDetailReport as $view)
                                         <tr>
+                                            <th>{{ $loop->iteration }}</th>
                                             <td>{{ $view->student_name }}</td> 
                                             <td>{{ $view->instructor_name }}</td>    
                                             <td>{{ $view->scenario }}</td> 
+                                            @php
+                                                $timestamp = strtotime($view->date);
+                                                $tanggal = date('Y-m-d', $timestamp);
+                                                $waktu = date('H:i:s', $timestamp);
+                                            @endphp
+                                            <td>{{ $tanggal }}</td>
+                                            <td>{{ $waktu }}</td> 
                                             <td>{{ $view->status }}</td>
                                             <td>
                                                 @if($view->status == 'finished')

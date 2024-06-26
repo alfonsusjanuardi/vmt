@@ -70,7 +70,7 @@
                                             <option value="" disabled> Pilih tipe</option>
                                             <option value="Picture" @if ($view->media_type == "Picture") selected @endif>Picture</option>
                                             <option value="Video" @if ($view->media_type == "Video") selected @endif>Video</option>
-                                            <option value="Youtube" @if ($view->media_type == "Youtube") selected @endif>Youtube</option>
+                                            {{-- <option value="Youtube" @if ($view->media_type == "Youtube") selected @endif>Youtube</option> --}}
                                         </select>
                                     </div>
                                     <div class="form-group media-upload-group" style="display: none;">
@@ -176,7 +176,7 @@
                                                     <option value="" disabled> Pilih tipe</option>
                                                     <option value="Picture" @if ($list->type == "Picture") selected @endif>Picture</option>
                                                     <option value="Video" @if ($list->type == "Video") selected @endif>Video</option>
-                                                    <option value="Youtube" @if ($list->type == "Youtube") selected @endif>Youtube</option>
+                                                    {{-- <option value="Youtube" @if ($list->type == "Youtube") selected @endif>Youtube</option> --}}
                                                 </select>
                                             </div>
                                             <div class="form-group media-upload-group-{{ $loop->index }}" style="display: none;">

@@ -39,6 +39,7 @@
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
+                                            <th>No</th>
                                             <th>Scenario Name</th>
                                             <th>Action</th>
                                         </tr>
@@ -46,6 +47,7 @@
                                     <tbody>
                                         @foreach($scenario as $item)
                                             <tr>
+                                                <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $item->scenario_name }}</td>
                                                 {{-- <td><a href="exercises/viewExercise/{{ $item->id_exercise }}">{{ $item->project_name }}</a></td> --}}
                                                 <td>

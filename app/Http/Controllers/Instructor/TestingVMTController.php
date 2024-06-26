@@ -71,6 +71,7 @@ class TestingVMTController extends Controller
                         ->join('archive_report', 'archive_report.id_action', '=', 'testingvmt.id_report')
                         ->select('testingvmt.*')
                         ->where('testingvmt.id_report', $id_report)
+                        ->orderBy('testingvmt.id')
                         ->get();
         return view('instructor.testingvmt.viewTestingVMT', ['viewTestingVMT' => $viewTestingVMT, 'userID' => $userID, 'detailUser' => $detailUser, 'name' => $name, 'username' => $username]);
     }
