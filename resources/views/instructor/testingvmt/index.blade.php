@@ -38,7 +38,7 @@
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
-                                            <th>No</th>
+                                            {{-- <th>No</th> --}}
                                             <th>Name</th>
                                             <th>Username</th>
                                             <th>Action</th>
@@ -47,7 +47,7 @@
                                     <tbody>
                                         @foreach($testingvmt as $item)
                                             <tr>
-                                                <td>{{ $loop->iteration }}</td>
+                                                {{-- <td>{{ $loop->iteration }}</td> --}}
                                                 <td>{{ $item->name }}</td>
                                                 <td>{{ $item->student }}</td>
                                                 <td>
