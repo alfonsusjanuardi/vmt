@@ -69,11 +69,13 @@
                                                         class="btn btn-info btn-lg">
                                                         Update
                                                     </a>
-                                                    <a href="users/deleteUser/{{ $item->username }}"
-                                                        class="btn btn-danger btn-lg"
-                                                        onclick="return confirm('Are you sure?')">
-                                                        Delete
-                                                    </a>
+                                                    @if($item->id_user != 2)
+                                                        <a href="users/deleteUser/{{ $item->username }}"
+                                                            class="btn btn-danger btn-lg"
+                                                            onclick="return confirm('Are you sure?')">
+                                                            Delete
+                                                        </a>
+                                                    @endif
                                                 </td>
                                             </tr>
                                         @endforeach
