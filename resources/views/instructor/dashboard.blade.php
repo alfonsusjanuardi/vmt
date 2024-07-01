@@ -74,7 +74,11 @@
                         <!-- small box -->
                         <div class="small-box bg-info card-rounded">
                             <div class="inner">
+                                @if($userID == 2)
                                 <h3>{{ $countPenilaian }}</h3>
+                                @else
+                                <h3>{{ $countPenilaianByInstructor }}</h3>
+                                @endif
 
                                 <p>Evaluation</p>
                             </div>

@@ -28,6 +28,10 @@ class InstructorController extends Controller
         $username = session('username');
         $countUser = uservmt::count();
 
-        return view('instructor.dashboard', ['countScenario' => $countScenario, 'countExercise' => $countExercise, 'userID' => $userID, 'countUser' => $countUser, 'countPenilaian' => $countPenilaian, 'countJoinUser' => $countJoinUser, 'name' => $name, 'username' => $username]);
+        $countPenilaianByInstructor = testingvmt::join('archive_report', 'archive_report.id_action', 'testingvmt.id_report')
+            ->where('archive_report.instructor', $username)
+            ->count();
+
+        return view('instructor.dashboard', ['countScenario' => $countScenario, 'countExercise' => $countExercise, 'userID' => $userID, 'countUser' => $countUser, 'countPenilaian' => $countPenilaian, 'countJoinUser' => $countJoinUser, 'name' => $name, 'username' => $username, 'countPenilaianByInstructor' => $countPenilaianByInstructor]);
     }
 }
