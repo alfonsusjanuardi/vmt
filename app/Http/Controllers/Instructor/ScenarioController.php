@@ -19,6 +19,7 @@ class ScenarioController extends Controller
         $username = session('username');
         $scenario = scenario::join('exercise', 'exercise.id_exercise', '=', 'scenario.id_exercise')
                     ->select('scenario.*', 'exercise.project_name', 'exercise.id_exercise')
+                    ->orderBy('scenario.id_exercise')
                     ->get();
         return view('instructor.scenarios.index', ['scenario' => $scenario, 'userID' => $userID, 'name' => $name, 'username' => $username]);
     }
