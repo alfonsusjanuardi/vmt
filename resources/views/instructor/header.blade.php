@@ -5,18 +5,18 @@
     <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
     </li>
-    <li class="nav-item d-none d-sm-inline-block">
+    {{-- <li class="nav-item d-none d-sm-inline-block">
         <a href="{{ route('instructor.dashboard') }}" class="nav-link">Home</a>
-    </li>
+    </li> --}}
     </ul>
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-        <li class="nav-item d-none d-sm-inline-block">
+        <li class="nav-item d-none d-sm-inline-block mr-2">
         {{-- @if ($userID == 0)
             <a href="#" class="d-block">Instructor</a>
         @elseif($userID == 1)
-            <a href="#" class="d-block">Trainer</a>
+            <a href="#" class="d-block">Trainee</a>
         @elseif($userID == 2)
             <a href="#" class="d-block">Admin</a>
         @endif --}}

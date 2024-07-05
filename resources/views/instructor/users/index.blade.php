@@ -55,23 +55,23 @@
                                                     @if ($item->id_user == 0)
                                                         Instructor
                                                     @elseif($item->id_user == 1)
-                                                        Trainer
+                                                        Trainee
                                                     @elseif($item->id_user == 2)
                                                         Admin
                                                     @endif
                                                 </td>
                                                 <td>
                                                     <a href="users/viewUser/{{ $item->username }}"
-                                                        class="btn btn-warning btn-lg">
+                                                        class="btn btn-warning">
                                                         View
                                                     </a>
                                                     <a href="users/updateUser/{{ $item->username }}"
-                                                        class="btn btn-info btn-lg">
+                                                        class="btn btn-info">
                                                         Update
                                                     </a>
                                                     @if($item->id_user != 2)
                                                         <a href="users/deleteUser/{{ $item->username }}"
-                                                            class="btn btn-danger btn-lg"
+                                                            class="btn btn-danger"
                                                             onclick="return confirm('Are you sure?')">
                                                             Delete
                                                         </a>

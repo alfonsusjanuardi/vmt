@@ -52,7 +52,7 @@
                                                     <option value="1">Trainee</option>
                                                 @else
                                                     <option value="0">Instructor</option>
-                                                    <option value="1" selected>Trainer</option>
+                                                    <option value="1" selected>Trainee</option>
                                                 @endif
                                             </select>
                                         </div>

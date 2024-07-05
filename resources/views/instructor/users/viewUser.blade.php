@@ -50,7 +50,7 @@
                                         @if($view->id_user == 0)
                                             <input class="form-control" type="text" name="role" id="role" placeholder="Input Role" value="Instructor" disabled>
                                         @elseif($view->id_user == 1)
-                                            <input class="form-control" type="text" name="role" id="role" placeholder="Input Role" value="Trainer" disabled>
+                                            <input class="form-control" type="text" name="role" id="role" placeholder="Input Role" value="Trainee" disabled>
                                         @else
                                             <input class="form-control" type="text" name="role" id="role" placeholder="Input Role" value="Admin" disabled>
                                         @endif

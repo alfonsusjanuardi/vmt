@@ -51,13 +51,13 @@
                                                 <td>{{ $item->scenario_name }}</td>
                                                 {{-- <td><a href="exercises/viewExercise/{{ $item->id_exercise }}">{{ $item->project_name }}</a></td> --}}
                                                 <td>
-                                                    {{-- <a href="scenarios/viewScenario/{{ $item->id_scenario }}" class="btn btn-info btn-lg">
+                                                    {{-- <a href="scenarios/viewScenario/{{ $item->id_scenario }}" class="btn btn-info">
                                                         View
                                                     </a>--}}
-                                                    <a href="exercises/viewExercise/{{ $item->id_exercise }}" class="btn btn-info btn-lg">
+                                                    <a href="exercises/viewExercise/{{ $item->id_exercise }}" class="btn btn-info">
                                                         Update
                                                     </a>
-                                                    <a href="scenarios/deleteScenario/{{ $item->id_scenario }}" class="btn btn-danger btn-lg" onclick="return confirm('Are you sure?')">
+                                                    <a href="scenarios/deleteScenario/{{ $item->id_scenario }}" class="btn btn-danger" onclick="return confirm('Are you sure?')">
                                                         Delete
                                                     </a>
                                                 </td>

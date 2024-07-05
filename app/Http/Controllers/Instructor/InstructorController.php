@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Instructor;
 
+use App\archive_report;
 use Session;
 
 use App\Http\Controllers\Controller;
@@ -19,7 +20,7 @@ class InstructorController extends Controller
     {
         $countScenario = scenario::count();
         $countExercise = exercise::count();
-        $countPenilaian = testingvmt::count();
+        $countPenilaian = archive_report::count();
         $countJoinUser = join_user::count();
         
         // Get the user ID from the session
@@ -28,8 +29,7 @@ class InstructorController extends Controller
         $username = session('username');
         $countUser = uservmt::count();
 
-        $countPenilaianByInstructor = testingvmt::join('archive_report', 'archive_report.id_action', 'testingvmt.id_report')
-            ->where('archive_report.instructor', $username)
+        $countPenilaianByInstructor = archive_report::where('instructor', $username)
             ->count();
 
         return view('instructor.dashboard', ['countScenario' => $countScenario, 'countExercise' => $countExercise, 'userID' => $userID, 'countUser' => $countUser, 'countPenilaian' => $countPenilaian, 'countJoinUser' => $countJoinUser, 'name' => $name, 'username' => $username, 'countPenilaianByInstructor' => $countPenilaianByInstructor]);

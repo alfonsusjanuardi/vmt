@@ -17,12 +17,15 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         $user = uservmt::where('username', $request->username)->where('password', $request->password)->first();
-        if ($user) {
+        if ($user->id_user != 1) {
             session(['user_id' => $user->id_user]);
             session(['name' => $user->name]);
             session(['username' => $user->username]);
             return redirect()->intended('/instructor');
         }
+        // else{
+        //     return redirect()->intended('/home.index');
+        // }
 
         return redirect('/')
             ->withInput($request->only('username'))

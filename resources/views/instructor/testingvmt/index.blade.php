@@ -51,7 +51,7 @@
                                                 <td>{{ $item->name }}</td>
                                                 <td>{{ $item->student }}</td>
                                                 <td>
-                                                    <a href="testingvmt/viewDetailReport/{{ $item->student }}" class="btn btn-warning btn-lg">
+                                                    <a href="testingvmt/viewDetailReport/{{ $item->student }}" class="btn btn-warning">
                                                         View
                                                     </a>
                                                 </td>

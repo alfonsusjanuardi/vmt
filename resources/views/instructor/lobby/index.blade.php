@@ -49,7 +49,7 @@
                                                 <td>{{ $item->name }}</td>
                                                 <td>{{ $item->username }}</td>
                                                 <td>
-                                                    Online
+                                                    <div class="btn btn-success">Online</div>
                                                 </td>
                                             </tr>
                                         @endforeach

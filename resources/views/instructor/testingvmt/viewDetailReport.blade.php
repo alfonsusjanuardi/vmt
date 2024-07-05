@@ -35,12 +35,13 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Trainer</th>
+                                            <th>Trainee</th>
                                             <th>Instructor</th>
                                             <th>Scenario</th>
                                             <th>Date</th>
                                             <th>Time</th>
                                             <th>Status</th>
+                                            <th>Advancement</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -59,14 +60,15 @@
                                             <td>{{ $tanggal }}</td>
                                             <td>{{ $waktu }}</td> 
                                             <td>{{ $view->status }}</td>
+                                            <td>{{ $view->progress }}</td>
                                             <td>
                                                 @if($view->status == 'finished')
-                                                    <a href="{{ url('instructor/testingvmt/viewTestingVMT', $view->id_action) }}" class="btn btn-warning btn-lg">
+                                                    <a href="{{ url('instructor/testingvmt/viewTestingVMT', $view->id_action) }}" class="btn btn-warning">
                                                         View
                                                     </a>
                                                 @endif
                                                 <a href="{{ url('instructor/testingvmt/deleteDetailReport', $view->id_action) }}"
-                                                    class="btn btn-danger btn-lg"
+                                                    class="btn btn-danger"
                                                     onclick="return confirm('Are you sure?')">
                                                     Delete
                                                 </a>
