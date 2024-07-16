@@ -10,13 +10,13 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Exercises</h1>
+                        <h1>Update Scenario</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('instructor.dashboard') }}">Home</a></li>
                             <li class="breadcrumb-item"><a href="{{ route('instructor.scenarios') }}">Scenarios</a></li>
-                            <li class="breadcrumb-item active">View Exercise</li>
+                            <li class="breadcrumb-item active">Update Scenario</li>
                         </ol>
                     </div>
                 </div>
@@ -62,7 +62,7 @@
                     <div class="col-6" style="height: calc(100vh - 180px); overflow-y: auto;">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">View Exercise</h3>
+                                <h3 class="card-title">Details Description</h3>
                             </div>
                             <div class="card-body">
                                 @foreach ($viewExercise as $view)
@@ -133,10 +133,11 @@
                                                             Browser tidak support video
                                                         </video>
                                                     @elseif ($view->media_type == 'Youtube')
-                                                        <br><a href="{{ $view->media_name }}"
-                                                            target="_blank" class="img-fluid">{{ $view->media_name }}</a>
+                                                        <br><a href="{{ $view->media_name }}" target="_blank"
+                                                            class="img-fluid">{{ $view->media_name }}</a>
                                                     @elseif ($view->media_type == 'Picture')
-                                                        <img class="img-fluid" src="{{ url('http://' . env('DB_HOST') . '/vr-content/Server/media_vmt/' . $view->media_name) }}"
+                                                        <img class="img-fluid"
+                                                            src="{{ url('http://' . env('DB_HOST') . '/vr-content/Server/media_vmt/' . $view->media_name) }}"
                                                             alt="Media Preview" style="max-height: 210px;">
                                                     @endif
                                                 </div>
@@ -174,7 +175,7 @@
                     <div class="col-6" style="height: calc(100vh - 180px); overflow-y: auto;">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Part Name</h3>
+                                <h3 class="card-title">Parts Name</h3>
                             </div>
 
                             <div class="card-body">
@@ -199,7 +200,8 @@
                                                         <br><a href="{{ $list->media_name }}"
                                                             target="_blank">{{ $list->media_name }}</a>
                                                     @elseif ($list->type == 'Picture')
-                                                        <img class="img-fluid" src="{{ url('http://' . env('DB_HOST') . '/vr-content/Server/media_vmt/' . $list->media_name) }}"
+                                                        <img class="img-fluid"
+                                                            src="{{ url('http://' . env('DB_HOST') . '/vr-content/Server/media_vmt/' . $list->media_name) }}"
                                                             alt="Media Preview" style="max-height: 210px;">
                                                     @endif
                                                 </div>
@@ -217,7 +219,8 @@
                                                         <br><a href="{{ $list->media_name }}"
                                                             target="_blank">{{ $list->media_name }}</a>
                                                     @elseif ($list->type == 'Picture')
-                                                        <img class="img-fluid" src="{{ Storage::url('media_upload/default_image.jpg') }}"
+                                                        <img class="img-fluid"
+                                                            src="{{ Storage::url('media_upload/default_image.jpg') }}"
                                                             alt="Media Preview" style="max-height: 210px;">
                                                     @endif
                                                 </div>
