@@ -2,16 +2,18 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class exercise extends Model
+class exercise_environtment extends Model
 {
-    /**
+    use HasFactory;
+     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'exercise';
+    protected $table = 'exercise_environtment';
 
     /**
      * disable-model-timestamps: nambah kolom 'updated_at' dan 'created_at'
@@ -23,12 +25,12 @@ class exercise extends Model
     *
     * @var string
     */
-    protected $primaryKey = 'id_exercise';
+    protected $primaryKey = 'id_environtment';
 
     /**
      * Attributes that should be mass-assignable.
      *
      * @var array
      */
-    protected $fillable = ['id_exercise', 'deskripsi', 'sejarah_pemakaian', 'sejarah_produksi', 'spesifikasi', 'kinerja', 'persenjataan', 'project_name', 'media_name', 'media_type','selected_id_env'];    
+    protected $guarded = ['id_environtment'];    
 }

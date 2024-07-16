@@ -63,8 +63,8 @@
                                         <input type="checkbox" id="togglePassword" onclick="togglePasswordVisibility()"> Show Password
                                     </div>
                                     <div class="form-group float-right">
-                                        <button class="btn btn-lg btn-danger" type="reset">Reset</button>
-                                        <button class="btn btn-lg btn-primary" type="submit">Submit</button>
+                                        <button class="btn btn-danger" type="reset">Reset</button>
+                                        <button class="btn btn-primary" type="submit">Submit</button>
                                     </div>
                                 </form>
                             </div>
@@ -72,6 +72,12 @@
                             @endforeach
                         </div>
                         <!-- /.card -->
+                    </div>
+                    <div class="col-12">
+                        <a href="{{ route('user.index') }}"
+                        class="btn btn-primary mr-3">
+                        Back
+                    </a>
                     </div>
                     <!-- /.col -->
                 </div>

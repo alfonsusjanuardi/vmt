@@ -16,7 +16,9 @@
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('instructor.dashboard') }}">Home</a></li>
                             <li class="breadcrumb-item"><a href="{{ route('instructor.testingvmt') }}">Evaluation</a></li>
-                            <li class="breadcrumb-item active"><a href="{{ url('instructor/testingvmt/viewDetailReport', $detailUser->username) }}">Report List</a></li>
+                            <li class="breadcrumb-item active"><a
+                                    href="{{ url('instructor/testingvmt/viewDetailReport', $detailUser->username) }}">Report
+                                    List</a></li>
                             <li class="breadcrumb-item active">View Detail Report</li>
                         </ol>
                     </div>
@@ -27,7 +29,7 @@
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
-                <div class="row" style="height: 80vh; overflow: hidden;">
+                <div class="row" style="height: 85vh; overflow: hidden;">
                     <div class="col-6" style="height: 100%; overflow-y: auto;">
                         <div class="card">
                             <!-- /.card-header -->
@@ -40,18 +42,18 @@
                                     <label>Project</label>
                                     <input class="form-control" type="text" value="{{ $detailUser->exercise }}" disabled>
                                 </div>
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label>Scenario</label>
                                     <input class="form-control" type="text" name="scenario" id="scenario" value="{{ $detailUser->scenario }}" disabled>
                                 </div>  
                                 <div class="form-group">
                                     <label>Simulation Mode</label>
                                     <input class="form-control" type="text" value="{{ $detailUser->exercisemode }}" disabled>
-                                </div>  
+                                </div>
                                 <div class="form-group">
                                     <label>Training Mode</label>
                                     <input class="form-control" type="text" value="{{ $detailUser->trainingmode }}" disabled>
-                                </div>
+                                </div>   --}}
                                 <div class="form-group">
                                     <label>Advancement</label>
                                     <input class="form-control" type="text" value="{{ $detailUser->progress }}" disabled>
@@ -65,13 +67,19 @@
                                     <input class="form-control" type="text" value="{{ $detailUser->date }}" disabled>
                                 </div>
                             </div>
+                            <div class="card-footer">
+                                <a href="{{ url('instructor/testingvmt/viewDetailReport', $detailUser->username) }}"
+                                    class="btn btn-primary mr-3">
+                                    Back
+                                </a>
+                            </div>
                             <!-- /.card-body -->
                         </div>
                         <!-- /.card -->
                     </div>
                     <!-- /.col -->
 
-                    <div class="col-6" style="height: 100%; overflow-y: auto;">
+                    <div class="col-6" style="height: 100%; overflow-y: hidden;">
                         <div class="card">
                             <div class="card-body">
                                 <form action="#" method="GET" enctype="multipart/form-data">
@@ -86,13 +94,13 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach($viewTestingVMT as $view)
-                                            <tr>
-                                                <th>{{ $loop->iteration }}</th>
-                                                <td>{{ $view->action }}</td> 
-                                                <td>{{ $view->time }}</td>     
-                                                <td>{{ $view->status }}</td>
-                                            </tr>
+                                            @foreach ($viewTestingVMT as $view)
+                                                <tr>
+                                                    <th>{{ $loop->iteration }}</th>
+                                                    <td>{{ $view->action }}</td>
+                                                    <td>{{ $view->time }}</td>
+                                                    <td>{{ $view->status }}</td>
+                                                </tr>
                                             @endforeach
                                         </tbody>
                                     </table>

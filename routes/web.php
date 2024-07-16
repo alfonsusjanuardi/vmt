@@ -34,13 +34,14 @@ Route::get('/instructor/users/deleteUser/{username}', 'Users\UserController@dele
 
 //Exercises
 Route::get('/instructor/exercises', 'Instructor\ExerciseController@index')->name('instructor.exercises');
-Route::get('/instructor/exercises/viewExercise/{id}', 'Instructor\ExerciseController@viewExercise')->middleware('check.session');
+Route::get('/instructor/exercises/viewExercise/{id}', 'Instructor\ExerciseController@viewExercise')->middleware('check.session')->name('exercises.viewExercise');
 Route::get('/instructor/exercises/viewExercise/scenario_action/viewScenarioAction/{id}', 'Instructor\ScenarioController@viewScenarioAction');
 Route::get('/instructor/exercises/create', 'Instructor\ExerciseController@createExercise')->name('exercises.create');
 Route::post('/instructor/exercises/storeExercise', 'Instructor\ExerciseController@storeExercise')->name('exercises.storeExercise');
 Route::get('/instructor/exercises/updateExercise/{id}', 'Instructor\ExerciseController@editExercise');
 Route::post('/instructor/exercises/updateExercise', 'Instructor\ExerciseController@updateExercise')->name('exercises.updateExercise');
 Route::post('/instructor/exercises/updateactionExercise', 'Instructor\ExerciseController@updateactionExercise')->name('exercises.updateactionExercise');
+Route::post('/instructor/exercises/updateExerciseEnv', 'Instructor\ExerciseController@updateExerciseEnv')->name('exercises.updateExerciseEnv');
 Route::get('/instructor/exercises/deleteExercise/{id}', 'Instructor\ExerciseController@deleteExercise');
 
 //Scenarios

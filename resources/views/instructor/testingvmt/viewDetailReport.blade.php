@@ -46,37 +46,43 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach($viewDetailReport as $view)
-                                        <tr>
-                                            <th>{{ $loop->iteration }}</th>
-                                            <td>{{ $view->student_name }}</td> 
-                                            <td>{{ $view->instructor_name }}</td>    
-                                            <td>{{ $view->scenario }}</td> 
-                                            @php
-                                                $timestamp = strtotime($view->date);
-                                                $tanggal = date('Y-m-d', $timestamp);
-                                                $waktu = date('H:i:s', $timestamp);
-                                            @endphp
-                                            <td>{{ $tanggal }}</td>
-                                            <td>{{ $waktu }}</td> 
-                                            <td>{{ $view->status }}</td>
-                                            <td>{{ $view->progress }}</td>
-                                            <td>
-                                                @if($view->status == 'finished')
-                                                    <a href="{{ url('instructor/testingvmt/viewTestingVMT', $view->id_action) }}" class="btn btn-warning">
-                                                        View
+                                        @foreach ($viewDetailReport as $view)
+                                            <tr>
+                                                <th>{{ $loop->iteration }}</th>
+                                                <td>{{ $view->student_name }}</td>
+                                                <td>{{ $view->instructor_name }}</td>
+                                                <td>{{ $view->scenario }}</td>
+                                                @php
+                                                    $timestamp = strtotime($view->date);
+                                                    $tanggal = date('Y-m-d', $timestamp);
+                                                    $waktu = date('H:i:s', $timestamp);
+                                                @endphp
+                                                <td>{{ $tanggal }}</td>
+                                                <td>{{ $waktu }}</td>
+                                                <td>{{ $view->status }}</td>
+                                                <td>{{ $view->progress }}</td>
+                                                <td>
+                                                    @if ($view->status == 'finished')
+                                                        <a href="{{ url('instructor/testingvmt/viewTestingVMT', $view->id_action) }}"
+                                                            class="btn btn-sm btn-warning">
+                                                            View
+                                                        </a>
+                                                    @endif
+                                                    <a href="{{ url('instructor/testingvmt/deleteDetailReport', $view->id_action) }}"
+                                                        class="btn btn-sm btn-danger"
+                                                        onclick="return confirm('Are you sure?')">
+                                                        Delete
                                                     </a>
-                                                @endif
-                                                <a href="{{ url('instructor/testingvmt/deleteDetailReport', $view->id_action) }}"
-                                                    class="btn btn-danger"
-                                                    onclick="return confirm('Are you sure?')">
-                                                    Delete
-                                                </a>
-                                            </td>
-                                        </tr>
+                                                </td>
+                                            </tr>
                                         @endforeach
                                     </tbody>
                                 </table>
+                            </div>
+                            <div class="card-footer">
+                                <a href="{{ route('instructor.testingvmt') }}" class="btn btn-primary mr-3">
+                                    Back
+                                </a>
                             </div>
                             <!-- /.card-body -->
                         </div>

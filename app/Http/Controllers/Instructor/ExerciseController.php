@@ -6,6 +6,7 @@ use Session;
 
 use App\Http\Controllers\Controller;
 use App\exercise;
+use App\exercise_environtment;
 use App\scenario_action;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -19,11 +20,27 @@ class ExerciseController extends Controller
 
     public function viewExercise($id) {
         $viewExercise = exercise::where('id_exercise', $id)->get();
-        $listScenarioAction = scenario_action::where('id_exercise', $id)->orderBy('id')->get();
-        $userID = session('user_id');
-        $name = session('name');
-        $username = session('username');
-        return view('instructor.exercises.viewExercise', ['viewExercise' => $viewExercise, 'listScenarioAction' => $listScenarioAction, 'userID' => $userID, 'name' => $name, 'username' => $username]);
+    $listScenarioAction = scenario_action::where('id_exercise', $id)->orderBy('id')->get();
+    
+    $viewEnv = exercise::join('exercise_environtment', 'exercise_environtment.id_exercise', '=', 'exercise.id_exercise')
+                ->select('exercise_environtment.id_environtment', 'exercise_environtment.nama_environtment','exercise.selected_id_env')
+                ->where('exercise.id_exercise', $id)
+                ->get();
+    
+    $userID = session('user_id');
+    $name = session('name');
+    $username = session('username');
+    
+    return view('instructor.exercises.viewExercise', [
+        'viewExercise' => $viewExercise,
+        'listScenarioAction' => $listScenarioAction,
+        'viewEnv' => $viewEnv,
+        'userID' => $userID,
+        'name' => $name,
+        'username' => $username,
+        'id_exercise' => $id
+    ]);
+        return view('instructor.exercises.viewExercise', ['viewExercise' => $viewExercise, 'listScenarioAction' => $listScenarioAction, 'userID' => $userID, 'name' => $name, 'username' => $username, 'viewEnv'=>$viewEnv,'id_exercise' => $id]);
     }
 
     public function createExercise() {
@@ -73,7 +90,7 @@ class ExerciseController extends Controller
 
         $exercise->save();
 
-        return redirect('instructor/scenarios')->with('info', 'Exercise updated successfully!');
+        return redirect()->route('exercises.viewExercise', ['id' => $request->id_exercise])->with('info', 'Exercise updated successfully!');
     }
     public function updateactionExercise(Request $request) {
         foreach ($request->actions as $key => $action) {
@@ -104,12 +121,28 @@ class ExerciseController extends Controller
             $scenarioAction->save();
         }
     
-        return redirect('instructor/scenarios')->with('info', 'Action updated successfully!');
+        return redirect()->route('exercises.viewExercise', ['id' => $request->id_exercise])->with('info', 'Action updated successfully!');
     }
     
     public function deleteExercise($id) {
         exercise::destroy($id);
 
         return redirect()->back()->with('error','Exercise is deleted!');
+    }
+
+    public function updateExerciseEnv(Request $request)
+    {
+        $request->validate([
+            'id_exercise' => 'required|integer',
+            'selected_id_env' => 'required|integer',
+        ]);
+
+        $exercise = Exercise::where('id_exercise', $request->id_exercise)->firstOrFail();
+
+        $exercise->selected_id_env = $request->input('selected_id_env');
+        $exercise->save();
+
+        return redirect()->route('exercises.viewExercise', ['id' => $request->id_exercise])
+        ->with('info', 'Environment Selected!');
     }
 }
