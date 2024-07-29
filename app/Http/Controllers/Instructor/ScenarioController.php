@@ -29,7 +29,8 @@ class ScenarioController extends Controller
                         ->select('*', 'exercise.project_name')
                         ->where('id_scenario', $id)
                         ->get();
-        return view('instructor.scenarios.viewScenario', ['viewScenario' => $viewScenario]);
+        $scenario=scenario::get();
+        return view('instructor.scenarios.viewScenario', ['viewScenario' => $viewScenario,'scenario'=>$scenario]);
     }
 
     public function createScenario() {

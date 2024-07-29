@@ -76,6 +76,18 @@
                                                 placeholder="Input Project Name" value="{{ $view->project_name }}" disabled>
                                         </div>
                                         <div class="form-group">
+                                            <label for="product_name">Product Name</label>
+                                            <input class="form-control" type="text" name="product_name" id="product_name"
+                                                placeholder="Input Project Name" value="{{ $view->product_name }}"
+                                                disabled>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="lisence_key">Lisence Key</label>
+                                            <input class="form-control" type="text" name="lisence_key" id="lisence_key"
+                                                placeholder="Input Project Name" value="{{ $view->license_key }}"
+                                                disabled>
+                                        </div>
+                                        <div class="form-group">
                                             <label for="deskripsi">Deskripsi</label>
                                             <textarea class="form-control" id="deskripsi" name="deskripsi" rows="10">{{ $view->deskripsi }}</textarea>
                                         </div>

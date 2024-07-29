@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\exercise;
 use App\exercise_environtment;
 use App\scenario_action;
+use App\scenario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -19,7 +20,12 @@ class ExerciseController extends Controller
     }
 
     public function viewExercise($id) {
-        $viewExercise = exercise::where('id_exercise', $id)->get();
+    // $viewExercise = exercise::where('id_exercise', $id)->get();
+        $viewExercise = scenario::join('exercise', 'exercise.id_exercise', '=', 'scenario.id_exercise')
+        ->select('scenario.*', 'exercise.*')
+        ->where('scenario.id_exercise', $id)
+        ->orderBy('scenario.id_exercise')
+        ->get();
     $listScenarioAction = scenario_action::where('id_exercise', $id)->orderBy('id')->get();
     
     $viewEnv = exercise::join('exercise_environtment', 'exercise_environtment.id_exercise', '=', 'exercise.id_exercise')

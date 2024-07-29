@@ -40,6 +40,8 @@
                                         <tr>
                                             <th>No</th>
                                             <th>Scenario Name</th>
+                                            <th>Product Name</th>
+                                            <th>License key</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -48,6 +50,8 @@
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $item->scenario_name }}</td>
+                                                <td>{{ $item->product_name }}</td>
+                                                <td>{{ $item->license_key }}</td>
                                                 {{-- <td><a href="exercises/viewExercise/{{ $item->id_exercise }}">{{ $item->project_name }}</a></td> --}}
                                                 <td>
                                                     {{-- <a href="scenarios/viewScenario/{{ $item->id_scenario }}" class="btn btn-info">
