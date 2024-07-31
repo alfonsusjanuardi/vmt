@@ -140,7 +140,7 @@
                                                     @if ($view->media_type == 'Video')
                                                         <video class="img-fluid" style="max-height: 210px;" controls>
                                                             <source
-                                                                src="{{ url('http://' . env('DB_HOST') . '/vr-content/Server/media_vmt/' . $view->media_name) }}"
+                                                                src="{{ url(env('file_directory'). $view->media_name) }}"
                                                                 type="video/mp4">
                                                             Browser tidak support video
                                                         </video>
@@ -149,7 +149,7 @@
                                                             class="img-fluid">{{ $view->media_name }}</a>
                                                     @elseif ($view->media_type == 'Picture')
                                                         <img class="img-fluid"
-                                                            src="{{ url('http://' . env('DB_HOST') . '/vr-content/Server/media_vmt/' . $view->media_name) }}"
+                                                            src="{{ url(env('file_directory'). $view->media_name) }}"
                                                             alt="Media Preview" style="max-height: 210px;">
                                                     @endif
                                                 </div>
@@ -204,7 +204,7 @@
                                                     @if ($list->type == 'Video')
                                                         <video style="max-height: 210px;" controls>
                                                             <source
-                                                                src="{{ url('http://' . env('DB_HOST') . '/vr-content/Server/media_vmt/' . $list->media_name) }}"
+                                                                src="{{ url(env('file_directory') . $list->media_name) }}"
                                                                 type="video/mp4">
                                                             Browser tidak support video
                                                         </video>
@@ -213,7 +213,7 @@
                                                             target="_blank">{{ $list->media_name }}</a>
                                                     @elseif ($list->type == 'Picture')
                                                         <img class="img-fluid"
-                                                            src="{{ url('http://' . env('DB_HOST') . '/vr-content/Server/media_vmt/' . $list->media_name) }}"
+                                                            src="{{ url(env('file_directory') . $list->media_name) }}"
                                                             alt="Media Preview" style="max-height: 210px;">
                                                     @endif
                                                 </div>

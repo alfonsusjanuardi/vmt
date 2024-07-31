@@ -88,8 +88,8 @@ class ExerciseController extends Controller
             $file = $request->file('media_upload');
             $filename =  $file->getClientOriginalName();
             // $path = $file->storeAs('C:\laragon\www', $filename);
-            $path = 'C:/laragon/www/vr-content/Server/media_vmt' . $filename;
-            $file->move('C:/laragon/www/vr-content/Server/media_vmt', $filename);
+            $path = env('file_upload') . $filename;
+            $file->move(env('file_upload'), $filename);
             $exercise->media_name = $filename;
             }
         }
@@ -117,8 +117,8 @@ class ExerciseController extends Controller
                     if ($request->hasFile('actions.' . $key . '.media_upload')) {
                         $file = $request->file('actions.' . $key . '.media_upload');
                         $filename = $file->getClientOriginalName();
-                        $path = 'C:/laragon/www/vr-content/Server/media_vmt/' . $filename;
-                        $file->move('C:/laragon/www/vr-content/Server/media_vmt', $filename);
+                        $path = env('file_upload') . $filename;
+                        $file->move(env('file_upload'), $filename);
                         $scenarioAction->media_name = $filename;
                     }
                 }
