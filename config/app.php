@@ -133,6 +133,12 @@ return [
     | this array to grant expanded functionality to your applications.
     |
     */
+    
+    
+    // Start Custom Config 
+    'file_directory' => env('file_directory'),
+    'file_upload' => env('file_upload'),
+    // End Custom Config
 
     'providers' => [
 
