@@ -39,7 +39,7 @@
                                     <input class="form-control" type="text" value="{{ $detailUser->name }}" disabled>
                                 </div>
                                 <div class="form-group">
-                                    <label>Project</label>
+                                    <label>Scenario</label>
                                     <input class="form-control" type="text" value="{{ $detailUser->exercise }}" disabled>
                                 </div>
                                 {{-- <div class="form-group">
