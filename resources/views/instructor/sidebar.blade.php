@@ -72,15 +72,15 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="{{ route('instructor.testingvmt') }}" class="nav-link {{ Request::is('instructor/testingvmt') == 'instructor/testingvmt' ? 'active' : '' }}">
+            <a href="{{ route('instructor.evaluation') }}" class="nav-link {{ Request::is('instructor/evaluation') == 'instructor/evaluation' ? 'active' : '' }}">
                 <i class="nav-icon fas fa-table"></i>
                 <p>Testing VMT</p>
             </a>
         </li> --}}
                 <li class="nav-header">REPORTS</li>
                 <li class="nav-item">
-                    <a href="{{ route('instructor.testingvmt') }}"
-                        class="nav-link {{ Request::is('instructor/testingvmt') || Request::is('instructor/testingvmt/*') ? 'active' : '' }}">
+                    <a href="{{ route('instructor.evaluation') }}"
+                        class="nav-link {{ Request::is('instructor/evaluation') || Request::is('instructor/evaluation/*') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-list"></i>
                         <p>Evaluation</p>
                     </a>

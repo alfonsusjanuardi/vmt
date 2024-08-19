@@ -63,10 +63,10 @@ Route::post('/instructor/scenario_action/updateScenarioAction', 'Instructor\Scen
 Route::get('/instructor/scenario_action/deleteScenarioAction/{id}', 'Instructor\ScenarioController@deleteScenarioAction');
 
 // Testing VMT
-Route::get('/instructor/testingvmt', 'Instructor\TestingVMTController@index')->middleware('check.session')->name('instructor.testingvmt');
-Route::get('/instructor/testingvmt/viewDetailReport/{id}', 'Instructor\TestingVMTController@viewDetailReport')->middleware('check.session');
-Route::get('/instructor/testingvmt/viewTestingVMT/{id}', 'Instructor\TestingVMTController@viewTestingVMT')->middleware('check.session');
-Route::get('/instructor/testingvmt/deleteDetailReport/{id}', 'Instructor\TestingVMTController@deleteDetailReport')->middleware('check.session');
+Route::get('/instructor/evaluation', 'Instructor\TestingVMTController@index')->middleware('check.session')->name('instructor.evaluation');
+Route::get('/instructor/evaluation/viewListReport/{id}', 'Instructor\TestingVMTController@viewDetailReport')->middleware('check.session');
+Route::get('/instructor/evaluation/viewDetailReport/{id}', 'Instructor\TestingVMTController@viewTestingVMT')->middleware('check.session');
+Route::get('/instructor/evaluation/deleteDetailReport/{id}', 'Instructor\TestingVMTController@deleteDetailReport')->middleware('check.session');
 
 //Lobby
 Route::get('/instructor/lobby', 'Lobby\LobbyController@index')->middleware('check.session')->name('lobby.index');

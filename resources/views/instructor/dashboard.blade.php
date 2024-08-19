@@ -82,7 +82,7 @@
 
                                 <p>Evaluation</p>
                             </div>
-                            <a href="{{ route('instructor.testingvmt') }}" class="small-box-footer"
+                            <a href="{{ route('instructor.evaluation') }}" class="small-box-footer"
                                 style="border-radius: 0px 0px 20px 20px !important;">More info <i
                                     class="fas fa-arrow-circle-right"></i></a>
                         </div>

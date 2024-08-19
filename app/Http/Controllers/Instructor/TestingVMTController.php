@@ -26,14 +26,14 @@ class TestingVMTController extends Controller
                         ->select('archive_report.student', 'uservmt.name')
                         ->distinct()
                         ->get();
-            return view('instructor.testingvmt.index', ['testingvmt' => $testingvmt, 'userID' => $userID, 'name' => $name, 'username' => $username]);
+            return view('instructor.evaluation.index', ['testingvmt' => $testingvmt, 'userID' => $userID, 'name' => $name, 'username' => $username]);
         } else {
             $testingvmt = archive_report::join('uservmt', 'uservmt.username', 'archive_report.student')
                         ->select('archive_report.student', 'uservmt.name')
                         ->distinct()
                         ->where('archive_report.instructor', $username)
                         ->get();
-            return view('instructor.testingvmt.index', ['testingvmt' => $testingvmt, 'userID' => $userID, 'name' => $name, 'username' => $username]);
+            return view('instructor.evaluation.index', ['testingvmt' => $testingvmt, 'userID' => $userID, 'name' => $name, 'username' => $username]);
         }
     }
 
@@ -47,14 +47,14 @@ class TestingVMTController extends Controller
                             ->join('uservmt as instructors', 'instructors.username', '=', 'archive_report.instructor')
                             ->select('archive_report.*', 'students.name as student_name', 'instructors.name as instructor_name')
                             ->where('archive_report.student', $student)->orderBy('archive_report.id_report')->get();
-            return view('instructor.testingvmt.viewDetailReport', ['viewDetailReport' => $viewDetailReport, 'userID' => $userID, 'name' => $name, 'username' => $username]);
+            return view('instructor.evaluation.viewListReport', ['viewDetailReport' => $viewDetailReport, 'userID' => $userID, 'name' => $name, 'username' => $username]);
         } else {
             $viewDetailReport = archive_report::join('uservmt as students', 'students.username', '=', 'archive_report.student')
                             ->join('uservmt as instructors', 'instructors.username', '=', 'archive_report.instructor')
                             ->select('archive_report.*', 'students.name as student_name', 'instructors.name as instructor_name')
                             ->where('archive_report.student', $student)
                             ->where('archive_report.instructor', $username)->orderBy('archive_report.id_report')->get();
-            return view('instructor.testingvmt.viewDetailReport', ['viewDetailReport' => $viewDetailReport, 'userID' => $userID, 'name' => $name, 'username' => $username]);
+            return view('instructor.evaluation.viewListReport', ['viewDetailReport' => $viewDetailReport, 'userID' => $userID, 'name' => $name, 'username' => $username]);
         }
     }
 
@@ -73,7 +73,7 @@ class TestingVMTController extends Controller
                         ->where('testingvmt.id_report', $id_report)
                         ->orderBy('testingvmt.id')
                         ->get();
-        return view('instructor.testingvmt.viewTestingVMT', ['viewTestingVMT' => $viewTestingVMT, 'userID' => $userID, 'detailUser' => $detailUser, 'name' => $name, 'username' => $username]);
+        return view('instructor.evaluation.viewDetailReport', ['viewTestingVMT' => $viewTestingVMT, 'userID' => $userID, 'detailUser' => $detailUser, 'name' => $name, 'username' => $username]);
     }
 
     public function deleteDetailReport($id_action) {

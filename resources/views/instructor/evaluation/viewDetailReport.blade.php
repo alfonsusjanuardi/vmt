@@ -15,9 +15,9 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('instructor.dashboard') }}">Home</a></li>
-                            <li class="breadcrumb-item"><a href="{{ route('instructor.testingvmt') }}">Evaluation</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('instructor.evaluation') }}">Evaluation</a></li>
                             <li class="breadcrumb-item active"><a
-                                    href="{{ url('instructor/testingvmt/viewDetailReport', $detailUser->username) }}">Report
+                                    href="{{ url('instructor/evaluation/viewListReport', $detailUser->username) }}">Report
                                     List</a></li>
                             <li class="breadcrumb-item active">View Detail Report</li>
                         </ol>
@@ -68,7 +68,7 @@
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <a href="{{ url('instructor/testingvmt/viewDetailReport', $detailUser->username) }}"
+                                <a href="{{ url('instructor/evaluation/viewListReport', $detailUser->username) }}"
                                     class="btn btn-primary mr-3">
                                     Back
                                 </a>

@@ -15,7 +15,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('instructor.dashboard') }}">Home</a></li>
-                            <li class="breadcrumb-item"><a href="{{ route('instructor.testingvmt') }}">Evaluation</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('instructor.evaluation') }}">Evaluation</a></li>
                             <li class="breadcrumb-item active">View Report List</li>
                         </ol>
                     </div>
@@ -63,12 +63,12 @@
                                                 <td>{{ $view->progress }}</td>
                                                 <td>
                                                     @if ($view->status == 'finished')
-                                                        <a href="{{ url('instructor/testingvmt/viewTestingVMT', $view->id_action) }}"
+                                                        <a href="{{ url('instructor/evaluation/viewDetailReport', $view->id_action) }}"
                                                             class="btn btn-sm btn-warning">
                                                             View
                                                         </a>
                                                     @endif
-                                                    <a href="{{ url('instructor/testingvmt/deleteDetailReport', $view->id_action) }}"
+                                                    <a href="{{ url('instructor/evaluation/deleteDetailReport', $view->id_action) }}"
                                                         class="btn btn-sm btn-danger"
                                                         onclick="return confirm('Are you sure?')">
                                                         Delete
@@ -80,7 +80,7 @@
                                 </table>
                             </div>
                             <div class="card-footer">
-                                <a href="{{ route('instructor.testingvmt') }}" class="btn btn-primary mr-3">
+                                <a href="{{ route('instructor.evaluation') }}" class="btn btn-primary mr-3">
                                     Back
                                 </a>
                             </div>
