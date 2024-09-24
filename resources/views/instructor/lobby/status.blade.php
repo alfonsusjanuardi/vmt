@@ -10,16 +10,13 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Detail Report</h1>
+                        <h1>Live Report</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('instructor.dashboard') }}">Home</a></li>
-                            <li class="breadcrumb-item"><a href="{{ route('instructor.evaluation') }}">Evaluation</a></li>
-                            <li class="breadcrumb-item active"><a
-                                    href="{{ url('instructor/evaluation/viewListReport', $detailUser->username) }}">Report
-                                    List</a></li>
-                            <li class="breadcrumb-item active">View Detail Report</li>
+                            <li class="breadcrumb-item"><a href="{{ route('lobby.index') }}">lobby</a></li>
+                            <li class="breadcrumb-item active">View Lobby status</li>
                         </ol>
                     </div>
                 </div>
@@ -29,47 +26,30 @@
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
-                <div class="row" >
+                <div class="row">
                     <div class="col-6" style="height: 100%; overflow-y: auto;">
                         <div class="card">
                             <!-- /.card-header -->
                             <div class="card-body">
                                 <div class="form-group">
+                                    <label>Instructor</label>
+                                    <input class="form-control" type="text" value="" disabled>
+                                </div>
+                                <div class="form-group">
                                     <label>Trainee</label>
-                                    <input class="form-control" type="text" value="{{ $detailUser->name }}" disabled>
+                                    <input class="form-control" type="text" value="" disabled>
                                 </div>
                                 <div class="form-group">
                                     <label>Scenario</label>
-                                    <input class="form-control" type="text" value="{{ $detailUser->exercise }}" disabled>
-                                </div>
-                                {{-- <div class="form-group">
-                                    <label>Scenario</label>
-                                    <input class="form-control" type="text" name="scenario" id="scenario" value="{{ $detailUser->scenario }}" disabled>
-                                </div>  
-                                <div class="form-group">
-                                    <label>Simulation Mode</label>
-                                    <input class="form-control" type="text" value="{{ $detailUser->exercisemode }}" disabled>
+                                    <input class="form-control" type="text" value="" disabled>
                                 </div>
                                 <div class="form-group">
-                                    <label>Training Mode</label>
-                                    <input class="form-control" type="text" value="{{ $detailUser->trainingmode }}" disabled>
-                                </div>   --}}
-                                <div class="form-group">
-                                    <label>Advancement</label>
-                                    <input class="form-control" type="text" value="{{ $detailUser->progress }}" disabled>
-                                </div>
-                                <div class="form-group">
-                                    <label>Duration</label>
-                                    <input class="form-control" type="text" value="{{ $detailUser->duration }}" disabled>
-                                </div>
-                                <div class="form-group">
-                                    <label>Date / Time</label>
-                                    <input class="form-control" type="text" value="{{ $detailUser->date }}" disabled>
+                                    <label>Progression</label>
+                                    <input class="form-control" type="text" value="" disabled>
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <a href="{{ url('instructor/evaluation/viewListReport', $detailUser->username) }}"
-                                    class="btn btn-primary mr-3">
+                                <a href="{{ url('instructor/lobby') }}" class="btn btn-primary mr-3">
                                     Back
                                 </a>
                             </div>
@@ -114,4 +94,29 @@
         </section>
         <!-- /.content -->
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        setInterval(function() {
+            $.ajax({
+                url: "{{ route('lobby.getStatus', $id_report) }}",
+                type: "GET",
+                success: function(data) {
+                    var tableBody = '';
+                    data.forEach(function(view, index) {
+                        tableBody += '<tr>';
+                        tableBody += '<th>' + (index + 1) + '</th>';
+                        tableBody += '<td>' + view.action + '</td>';
+                        tableBody += '<td>' + view.time + '</td>';
+                        tableBody += '<td>' + view.status + '</td>';
+                        tableBody += '</tr>';
+                    });
+                    $('#table-body').html(tableBody);
+                },
+                error: function() {
+                    console.log('Error fetching data');
+                }
+            });
+        }, 5000); 
+    </script>
 @endsection
+

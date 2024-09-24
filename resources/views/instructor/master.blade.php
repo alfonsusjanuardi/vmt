@@ -49,11 +49,13 @@
         @yield('content')
 
         <footer class="main-footer">
-            <strong>Copyright &copy; 
+            <strong>Copyright &copy;
                 <span id="copyright">
-                    <script>document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))</script>
+                    <script>
+                        document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
+                    </script>
                 </span>
-                 AKMIL.</strong> All rights reserved.
+                AKMIL.</strong> All rights reserved.
             {{-- <div class="float-right d-none d-sm-inline-block">
                 <b>Version</b> 3.2.0
             </div> --}}
@@ -118,24 +120,17 @@
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>
     <script>
-        $(function() {
+        $(document).ready(function() {
             $("#example1").DataTable({
                 "responsive": true,
                 "lengthChange": true,
                 "autoWidth": false,
-                // "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
                 "lengthMenu": [
                     [10, 20, 50, -1],
                     [10, 20, 50, "All"]
                 ],
                 "iDisplayLength": 10
-                // "columnDefs": [{ width: '20%', targets: 0 }],
-                // "fixedColumns": true,
-                // "paging": false,
-                // "scrollCollapse": true,
-                // "scrollX": true,
-                // "scrollY": 500
-            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+            });
         });
 
         var timepicker = new TimePicker('time', {

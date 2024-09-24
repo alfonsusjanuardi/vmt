@@ -4,7 +4,7 @@
     @include('instructor.header')
 
     @include('instructor.sidebar', ['userId' => $userID, 'name' => $name, 'username' => $username])
-    <meta http-equiv="refresh" content="30">
+    {{-- <meta http-equiv="refresh" content="30"> --}}
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
@@ -41,6 +41,7 @@
                                             <th>Name</th>
                                             <th>Username</th>
                                             <th>Status</th>
+                                            <th>action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -48,9 +49,34 @@
                                             <tr>
                                                 <td>{{ $item->name }}</td>
                                                 <td>{{ $item->username }}</td>
+                                                @if ($item->id_exercise && $item->id_report == optional(\App\testingvmt::where('id_report', $item->id_report)->first())->id_report)
                                                 <td>
-                                                    <div class="btn btn-success">Online</div>
+                                                    <div class="btn btn-success">In Game</div>
                                                 </td>
+                                                @elseif($item->id_exercise != null && $item->id_report != optional(\App\testingvmt::where('id_report', $item->id_report)->first())->id_report)
+                                                <td>
+                                                    <div class="btn btn-warning">Assigned</div>
+                                                </td>
+                                                @else()
+                                                <td>
+                                                    <div class="btn btn-warning">On Lobby</div>
+                                                </td>
+                                                @endif
+                                                {{-- <td>
+                                                    <div class="btn btn-success">Online</div>
+                                                </td> --}}
+                                                @if ($item->id_user == 1 && $item->id_exercise && $item->id_report == optional(\App\testingvmt::where('id_report', $item->id_report)->first())->id_report)
+                                                <td>
+                                                    <a href="{{ url('instructor/lobby/status', $item->id_report) }}"
+                                                        class="btn btn-sm btn-warning">
+                                                        View
+                                                    </a>
+                                                </td>
+                                                @else()
+                                                <td class="hidden">
+                                                </td>
+                                                @endif
+                                                
                                             </tr>
                                         @endforeach
                                     </tbody>
