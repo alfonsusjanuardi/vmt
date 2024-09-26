@@ -70,9 +70,12 @@ class ExerciseController extends Controller
         return view('instructor.exercises.updateExercise', ['editExercise' => $editExercise]);
     }
 
+    
+
     public function updateExercise(Request $request) {
         $exercise = exercise::where('id_exercise', $request->id_exercise)->first();
-
+    
+        
         $exercise->deskripsi = $request['deskripsi'];
         $exercise->sejarah_pemakaian = $request['sejarah_pemakaian'];
         $exercise->sejarah_produksi = $request['sejarah_produksi'];
@@ -80,24 +83,34 @@ class ExerciseController extends Controller
         $exercise->kinerja = $request['kinerja'];
         $exercise->persenjataan = $request['persenjataan'];
         $exercise->media_type = $request['media_type'];
-
+    
+        
         if ($request['media_type'] == 'Youtube') {
             $exercise->media_name = $request['media_link'];
         } else {
+            if ($exercise->media_name) {
+                $oldFilePath = config('app.file_upload') . $exercise->media_name;
+                if (file_exists($oldFilePath)) {
+                    unlink($oldFilePath);
+                }
+            }
+    
+            
             if ($request->hasFile('media_upload')) {
-            $file = $request->file('media_upload');
-            $timestamp = now()->timestamp; 
-            $filename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME) . '_' . $timestamp . '.' . $file->getClientOriginalExtension();
-            $path = config('app.file_upload') . $filename;
-            $file->move(config('app.file_upload'), $filename);
-            $exercise->media_name = $filename;
+                $file = $request->file('media_upload');
+                $timestamp = now()->timestamp; 
+                $filename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME) . '_' . $timestamp . '.' . $file->getClientOriginalExtension();
+                $file->move(config('app.file_upload'), $filename);
+                $exercise->media_name = $filename;
             }
         }
-
+    
+        
         $exercise->save();
-
+    
         return redirect()->route('exercises.viewExercise', ['id' => $request->id_exercise])->with('info', 'Exercise updated successfully!');
     }
+    
     public function updateactionExercise(Request $request) {
         foreach ($request->actions as $key => $action) {
             $scenarioAction = scenario_action::find($action['id']);
@@ -109,6 +122,14 @@ class ExerciseController extends Controller
             if (isset($action['type'])) {
                 $scenarioAction->type = $action['type'];
     
+                
+                if ($scenarioAction->media_name && $action['type'] != 'Youtube') {
+                    $oldFilePath = config('app.file_upload') . $scenarioAction->media_name;
+                    if (file_exists($oldFilePath)) {
+                        unlink($oldFilePath); 
+                    }
+                }
+    
                 if ($action['type'] == 'Youtube') {
                     if (isset($action['media_link'])) {
                         $scenarioAction->media_name = $action['media_link'];
@@ -116,9 +137,8 @@ class ExerciseController extends Controller
                 } else {
                     if ($request->hasFile('actions.' . $key . '.media_upload')) {
                         $file = $request->file('actions.' . $key . '.media_upload');
-                        $timestamp = now()->timestamp; 
+                        $timestamp = now()->format('Ymd'); 
                         $filename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME) . '_' . $timestamp . '.' . $file->getClientOriginalExtension();
-                        $path = config('app.file_upload') . $filename;
                         $file->move(config('app.file_upload'), $filename);
                         $scenarioAction->media_name = $filename;
                     }
@@ -130,6 +150,7 @@ class ExerciseController extends Controller
     
         return redirect()->route('exercises.viewExercise', ['id' => $request->id_exercise])->with('info', 'Action updated successfully!');
     }
+    
     
     public function deleteExercise($id) {
         exercise::destroy($id);
