@@ -72,3 +72,4 @@ Route::get('/instructor/evaluation/deleteDetailReport/{id}', 'Instructor\Testing
 Route::get('/instructor/lobby', 'Lobby\LobbyController@index')->middleware('check.session')->name('lobby.index');
 Route::get('/instructor/lobby/status/{id_report}', 'Lobby\LobbyController@status')->middleware('check.session')->name('lobby.status');
 Route::get('/instructor/lobby/getStatus/{id_report}', 'Lobby\LobbyController@getStatus')->middleware('check.session')->name('lobby.getStatus');
+Route::get('/instructor/lobby/gethitung/{id_report}', 'Lobby\LobbyController@gethitung')->middleware('check.session')->name('lobby.gethitung');

@@ -59,7 +59,7 @@
                                                 </td>
                                                 @else()
                                                 <td>
-                                                    <div class="btn btn-warning">On Lobby</div>
+                                                    <div class="btn btn-primary">On Lobby</div>
                                                 </td>
                                                 @endif
                                                 {{-- <td>

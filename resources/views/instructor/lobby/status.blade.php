@@ -33,19 +33,27 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label>Instructor</label>
-                                    <input class="form-control" type="text" value="" disabled>
+                                    {{-- @if ($viewuser->username == 0) --}}
+                                    @foreach ($cariins as $item)
+                                        @if ($viewuser->room_id == $item->room_id)
+                                            <input class="form-control" type="text" value="{{ $item->name }}" disabled>
+                                        @endif
+                                    @endforeach
+                                    {{-- @endif --}}
                                 </div>
                                 <div class="form-group">
                                     <label>Trainee</label>
-                                    <input class="form-control" type="text" value="" disabled>
+                                    @foreach ($cariuser as $item)
+                                        <input class="form-control" type="text" value="{{ $item->name }}" disabled>
+                                    @endforeach
                                 </div>
                                 <div class="form-group">
                                     <label>Scenario</label>
-                                    <input class="form-control" type="text" value="" disabled>
+                                    <input class="form-control" type="text" value="{{ $viewuser->scenario }}" disabled>
                                 </div>
                                 <div class="form-group">
                                     <label>Progression</label>
-                                    <input class="form-control" type="text" value="" disabled>
+                                    <input id="progression-input" class="form-control" type="text" value="{{ $hitung }} %" disabled>
                                 </div>
                             </div>
                             <div class="card-footer">
@@ -64,7 +72,7 @@
                             <div class="card-body">
                                 <form action="#" method="GET" enctype="multipart/form-data">
                                     {{ csrf_field() }}
-                                    <table id="example1" class="table table-bordered table-striped">
+                                    <table class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
                                                 <th>No</th>
@@ -73,7 +81,7 @@
                                                 <th>Status</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody id="table-body">
                                             @foreach ($viewTestingVMT as $view)
                                                 <tr>
                                                     <th>{{ $loop->iteration }}</th>
@@ -97,26 +105,39 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         setInterval(function() {
-            $.ajax({
-                url: "{{ route('lobby.getStatus', $id_report) }}",
-                type: "GET",
-                success: function(data) {
-                    var tableBody = '';
-                    data.forEach(function(view, index) {
-                        tableBody += '<tr>';
-                        tableBody += '<th>' + (index + 1) + '</th>';
-                        tableBody += '<td>' + view.action + '</td>';
-                        tableBody += '<td>' + view.time + '</td>';
-                        tableBody += '<td>' + view.status + '</td>';
-                        tableBody += '</tr>';
-                    });
-                    $('#table-body').html(tableBody);
-                },
-                error: function() {
-                    console.log('Error fetching data');
-                }
+    // Update status
+    $.ajax({
+        url: "{{ route('lobby.getStatus', $id_report) }}",
+        type: "GET",
+        success: function(data) {
+            var tableBody = '';
+            data.forEach(function(view, index) {
+                tableBody += '<tr>';
+                tableBody += '<th>' + (index + 1) + '</th>';
+                tableBody += '<td>' + view.action + '</td>';
+                tableBody += '<td>' + view.time + '</td>';
+                tableBody += '<td>' + view.status + '</td>';
+                tableBody += '</tr>';
             });
-        }, 5000); 
+            $('#table-body').html(tableBody);
+        },
+        error: function() {
+            console.log('Error fetching data');
+        }
+    });
+
+    // Update progression
+    $.ajax({
+        url: "{{ route('lobby.gethitung', $id_report) }}",
+        type: "GET",
+        success: function(data) {
+            $('#progression-input').val(data.progression + " %");
+        },
+        error: function() {
+            console.log('Error fetching progression data');
+        }
+    });
+}, 5000);
+
     </script>
 @endsection
-

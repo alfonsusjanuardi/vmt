@@ -86,8 +86,8 @@ class ExerciseController extends Controller
         } else {
             if ($request->hasFile('media_upload')) {
             $file = $request->file('media_upload');
-            $filename =  $file->getClientOriginalName();
-            // $path = $file->storeAs('C:\laragon\www', $filename);
+            $timestamp = now()->timestamp; 
+            $filename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME) . '_' . $timestamp . '.' . $file->getClientOriginalExtension();
             $path = config('app.file_upload') . $filename;
             $file->move(config('app.file_upload'), $filename);
             $exercise->media_name = $filename;
@@ -116,7 +116,8 @@ class ExerciseController extends Controller
                 } else {
                     if ($request->hasFile('actions.' . $key . '.media_upload')) {
                         $file = $request->file('actions.' . $key . '.media_upload');
-                        $filename = $file->getClientOriginalName();
+                        $timestamp = now()->timestamp; 
+                        $filename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME) . '_' . $timestamp . '.' . $file->getClientOriginalExtension();
                         $path = config('app.file_upload') . $filename;
                         $file->move(config('app.file_upload'), $filename);
                         $scenarioAction->media_name = $filename;
