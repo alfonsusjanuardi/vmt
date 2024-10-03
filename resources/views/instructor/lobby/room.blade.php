@@ -11,7 +11,9 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Lobby</h1>
+                        @foreach ($viewjoin as $item)
+                        <h1>Lobby Room {{$item->name}}</h1>
+                        @endforeach
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -45,31 +47,38 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($join_user as $item)
+                                        @foreach($join_user as $item)
                                             <tr>
                                                 <td>{{ $item->name }}</td>
                                                 <td>{{ $item->username }}</td>
+                                                @if ($item->id_exercise && $item->id_report == optional(\App\testingvmt::where('id_report', $item->id_report)->first())->id_report)
+                                                <td>
+                                                    <div class="btn btn-success">In Game</div>
+                                                </td>
+                                                @elseif($item->id_exercise != null && $item->id_report != optional(\App\testingvmt::where('id_report', $item->id_report)->first())->id_report)
+                                                <td>
+                                                    <div class="btn btn-warning">Assigned</div>
+                                                </td>
+                                                @else()
                                                 <td>
                                                     <div class="btn btn-primary">On Lobby</div>
                                                 </td>
+                                                @endif
                                                 {{-- <td>
                                                     <div class="btn btn-success">Online</div>
                                                 </td> --}}
-                                                @php
-                                                    $roomCount = $item->where('room_id', $item->room_id)->count();
-                                                @endphp
-                                                @if ($item->id_user == 0 && $roomCount > 1)
-                                                    <td>
-                                                        <a href="{{ url('instructor/lobby/room/status', $item->room_id) }}"
-                                                            class="btn btn-sm btn-warning">
-                                                            View
-                                                        </a>
-                                                    </td>
-                                                @else
-                                                    <td class="hidden">
-                                                    </td>
+                                                @if ($item->id_user == 1 && $item->id_exercise && $item->id_report == optional(\App\testingvmt::where('id_report', $item->id_report)->first())->id_report)
+                                                <td>
+                                                    <a href="{{ url('instructor/lobby/status', $item->id_report) }}"
+                                                        class="btn btn-sm btn-warning">
+                                                        View
+                                                    </a>
+                                                </td>
+                                                @else()
+                                                <td class="hidden">
+                                                </td>
                                                 @endif
-
+                                                
                                             </tr>
                                         @endforeach
                                     </tbody>
