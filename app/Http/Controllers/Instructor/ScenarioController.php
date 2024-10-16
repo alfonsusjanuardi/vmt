@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\scenario;
 use App\scenario_action;
 use App\exercise;
+use App\exercise_environtment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -66,6 +67,7 @@ class ScenarioController extends Controller
     public function deleteScenario($id) {
         scenario_action::where('id_scenario', $id)->delete();
         exercise::join('scenario', 'scenario.id_exercise', 'exercise.id_exercise')->where('scenario.id_scenario', $id)->delete();
+        exercise_environtment::where('id_exercise', $id)->delete();
         scenario::destroy($id);
 
         return redirect()->back()->with('error','Scenario is deleted!');
