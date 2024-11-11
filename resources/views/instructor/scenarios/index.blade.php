@@ -41,7 +41,7 @@
                                             <th>No</th>
                                             <th>Scenario Name</th>
                                             <th>Product Name</th>
-                                            <th>Serial Number</th>
+                                            <th>PN/SN</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
