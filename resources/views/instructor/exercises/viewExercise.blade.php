@@ -82,7 +82,13 @@
                                                 disabled>
                                         </div>
                                         <div class="form-group">
-                                            <label for="lisence_key">Lisence Key</label>
+                                            <label for="serial_number">PN/SN</label>
+                                            <input class="form-control" type="text" name="serial_number" id="serial_number"
+                                                placeholder="Input Project Name" value="{{ $view->serial_number }}"
+                                                disabled>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="lisence_key">License Key</label>
                                             <input class="form-control" type="text" name="lisence_key" id="lisence_key"
                                                 placeholder="Input Project Name" value="{{ $view->license_key }}"
                                                 disabled>
