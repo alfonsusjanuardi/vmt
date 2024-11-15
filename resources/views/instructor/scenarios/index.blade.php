@@ -42,6 +42,7 @@
                                             <th>Scenario Name</th>
                                             <th>Product Name</th>
                                             <th>PN/SN</th>
+                                            <th>License Key</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -51,6 +52,7 @@
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $item->scenario_name }}</td>
                                                 <td>{{ $item->product_name }}</td>
+                                                <td>{{ $item->serial_number }}</td>
                                                 <td>{{ $item->license_key }}</td>
                                                 {{-- <td><a href="exercises/viewExercise/{{ $item->id_exercise }}">{{ $item->project_name }}</a></td> --}}
                                                 <td>
